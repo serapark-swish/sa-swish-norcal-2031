@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team Hub | Sports Academy Swish NorCal Jr EYBL 14U</title>
+<meta name="apple-mobile-web-app-title" content="Swish Hub">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0D0D0F">
+<meta name="description" content="Tournament calendar, gyms, hotels, game schedules, travel times and game film for Sports Academy Swish NorCal Jr EYBL 14U.">
+<meta property="og:title" content="Swish Team Hub">
+<meta property="og:description" content="One place for every tournament: gyms, hotels, schedules, travel times and game film.">
+<meta property="og:image" content="icon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style id="css">
+:root{
+  --paper:#F6F7F5; --card:#FFFFFF; --ink:#1B1F2A; --muted:#5E6472; --line:#DCDDD8;
+  --maple:#E2AE5E; --maple-dark:#B9803A; --blue:#1F4FD1; --blue-soft:#E6ECFB; --live:#16864E;
+  --danger:#B42318;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#11141B; --card:#1A1E28; --ink:#ECEEF2; --muted:#9CA3B0; --line:#2C3240;
+    --maple:#D9A456; --maple-dark:#F0C07A; --blue:#7B9BFF; --blue-soft:#1F2A4A; --live:#3CC482; --danger:#FF7A6E;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11141B; --card:#1A1E28; --ink:#ECEEF2; --muted:#9CA3B0; --line:#2C3240;
+  --maple:#D9A456; --maple-dark:#F0C07A; --blue:#7B9BFF; --blue-soft:#1F2A4A; --live:#3CC482; --danger:#FF7A6E;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Barlow,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--blue)}
+button,input,textarea{font:inherit;color:inherit}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px 48px}
+.display{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;letter-spacing:.005em;line-height:1.02}
+
+/* Court hero */
+.court{position:relative;margin:0 -16px;padding:22px 20px 26px;color:#23180A;
+  background:
+    repeating-linear-gradient(90deg,rgba(120,70,20,.10) 0 2px,transparent 2px 46px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 11px),
+    linear-gradient(180deg,#EDBE72,#DDA553);
+  overflow:hidden}
+.court::after{content:"";position:absolute;right:-70px;bottom:-70px;width:200px;height:200px;border:3px solid rgba(255,255,255,.75);border-radius:50%}
+.court::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.75)}
+.teamline{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;font-size:15px;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:12px}
+.badge{display:grid;place-items:center;width:72px;height:80px;border-radius:12px;background:#0D0D0F;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.badge img{width:56px;height:auto;display:block}
+.brand .lbl{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:22px;font-weight:700;line-height:1.05}
+.teamline .season{opacity:.75}
+.court h1{font-size:clamp(38px,10vw,56px);margin:14px 0 6px;max-width:15ch}
+.court .when{font-size:17px;font-weight:500}
+.count{display:flex;align-items:baseline;gap:8px;margin-top:14px;position:relative;z-index:1}
+.count b{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:64px;line-height:.9}
+.count span{font-size:17px;font-weight:600}
+.pill-live{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--live);border-radius:999px;padding:6px 14px;font-weight:700}
+.pill-live i{width:9px;height:9px;border-radius:50%;background:#16864E}
+.court .open{margin-top:16px;position:relative;z-index:1;display:inline-block;background:#23180A;color:#FBE3BC;border:0;border-radius:10px;padding:12px 18px;font-weight:600;cursor:pointer;text-decoration:none}
+
+/* Quick links */
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:18px 0 8px}
+.quick a{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink);min-height:64px}
+.quick a small{color:var(--muted);font-size:13px}
+.quick a strong{font-weight:600}
+
+h2.sec{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:28px;margin:28px 0 10px;font-weight:700}
+.list{display:flex;flex-direction:column;gap:10px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.trow{display:grid;grid-template-columns:78px 1fr auto;gap:14px;align-items:center;padding:12px 14px;text-decoration:none;color:var(--ink)}
+.plan{font-size:14px;margin-top:3px;font-weight:600;color:var(--ink)}
+.plan.warn{color:var(--danger)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:0 14px 12px 106px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+@media (max-width:420px){.chips{padding-left:14px}}
+.chip{flex:none;display:inline-flex;align-items:center;min-height:36px;padding:0 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
+.chip.key{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip.off{color:var(--muted);border-style:dashed;background:transparent}
+.date{text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.date .m{font-size:13px;color:var(--muted);font-weight:600}
+.date .d{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:28px;font-weight:700;line-height:1;white-space:nowrap}
+.date .w{font-size:13px;color:var(--muted);font-weight:600;margin-top:2px}
+.trow .name{font-weight:600;font-size:17px;line-height:1.25}
+.trow .sub{color:var(--muted);font-size:14px}
+.tag{font-size:13px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.tag.live{background:var(--live);color:#fff}
+.tag.soon{background:var(--blue-soft);color:var(--blue)}
+.tag.film{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.tags{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.tag.travel{background:var(--maple);color:#23180A}
+.tag.local{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.filters{display:flex;gap:6px;margin:0 0 12px}
+.filters button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-weight:600;cursor:pointer;min-height:38px}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.stay{margin-top:10px;position:relative;z-index:1;font-size:16px;font-weight:500}
+.stay b{font-weight:700}
+.field select{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;width:100%;font-size:16px}
+.where{margin-top:12px;position:relative;z-index:1;font-size:17px}
+.where b{font-weight:700}
+.heroacts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;position:relative;z-index:1;max-width:520px}
+@media (min-width:560px){.heroacts{grid-template-columns:repeat(4,1fr)}}
+.hbtn.off{background:rgba(35,24,10,.18);color:rgba(35,24,10,.7);cursor:default}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:10px;background:#23180A;color:#FBE3BC;font-weight:600;text-decoration:none}
+.hbtn.alt{background:rgba(255,255,255,.55);color:#23180A}
+.gameday .bracket{display:flex;width:100%;margin-top:4px}
+.gameday .venue{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+details.acc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-top:10px;overflow:hidden}
+details.acc>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto 20px;gap:12px;align-items:center;padding:12px 16px;min-height:60px}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary::after{content:"+";font-size:22px;font-weight:600;color:var(--muted);text-align:center}
+details.acc[open]>summary::after{content:"–"}
+details.acc[open]>summary{border-bottom:3px solid var(--maple)}
+.acc .st{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:23px;font-weight:700}
+.acc .ss{color:var(--muted);font-size:14px;text-align:right}
+.acc .item:first-of-type{border-top:0}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;justify-content:center;gap:8px;background:var(--card);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px))}
+.dock a{flex:1;max-width:210px}
+.wrap.has-dock{padding-bottom:120px}
+.eyebrow{position:relative;z-index:1;display:inline-block;margin-top:16px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#23180A;color:#FBE3BC;padding:4px 10px;border-radius:6px}
+.eyebrow + h1{margin-top:8px}
+.srcs{display:flex;flex-wrap:wrap;gap:8px}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:22px;color:var(--muted)}
+
+/* Detail */
+.back{display:inline-flex;align-items:center;gap:6px;margin:16px 0 4px;background:none;border:0;color:var(--blue);font-weight:600;padding:8px 0;cursor:pointer}
+.dhead h1{font-size:clamp(34px,9vw,48px);margin:6px 0 4px}
+.dhead .meta{color:var(--muted);font-size:16px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:10px;padding:11px 16px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;cursor:pointer;min-height:44px}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--danger);border-color:var(--danger);background:transparent}
+.block{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-top:14px;overflow:hidden}
+.block h3{margin:0;padding:14px 16px 10px;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:24px;font-weight:700;border-bottom:3px solid var(--maple)}
+.item{padding:14px 16px;border-top:1px solid var(--line)}
+.block h3 + .item{border-top:0}
+.item .t{font-weight:600;font-size:17px}
+.item .s{color:var(--muted);font-size:15px}
+.vday{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--maple-dark);background:color-mix(in srgb,var(--maple) 20%,transparent);border-radius:6px;padding:2px 8px;margin-bottom:4px}
+.item .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin-top:8px;font-size:15px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:500}
+.game{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.notes{white-space:pre-wrap}
+
+/* Editor */
+.sheet{position:fixed;inset:0;background:rgba(10,12,18,.5);z-index:20;display:flex;justify-content:center;align-items:flex-end}
+.panel{background:var(--paper);width:100%;max-width:680px;height:100%;overflow:auto;padding:16px 16px calc(24px + env(safe-area-inset-bottom,0px));padding-top:calc(16px + env(safe-area-inset-top,0px))}
+@media (min-width:720px){.sheet{align-items:center}.panel{height:92%;border-radius:16px}}
+.panel h2{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:30px;margin:4px 0 12px}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.field label{font-size:14px;font-weight:600;color:var(--muted)}
+.field input,.field textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;width:100%;font-size:16px}
+.field textarea{min-height:84px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+fieldset{border:1px solid var(--line);border-radius:12px;padding:12px;margin:0 0 14px}
+legend{font-weight:700;padding:0 6px}
+.grp-row{border-top:1px dashed var(--line);padding-top:12px;margin-top:4px}
+.grp-row:first-of-type{border-top:0;padding-top:0}
+.help{color:var(--muted);font-size:14px;margin:-4px 0 12px}
+.bar{position:sticky;bottom:0;display:flex;gap:8px;justify-content:flex-end;background:var(--paper);padding:12px 0 0;border-top:1px solid var(--line);margin-top:8px}
+.foot{margin-top:36px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot button{background:none;border:0;color:var(--blue);font-weight:600;cursor:pointer;padding:6px 0}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;font-weight:600;z-index:40;max-width:90vw}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){.panel{animation:rise .22s ease-out}@keyframes rise{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}}
+
+/* Trip label: text, not a button */
+.trip{display:block;margin-top:6px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.trip.travel{color:var(--maple-dark)}
+.dhead .trip{display:inline}
+/* Larger, phone-friendly type */
+body{font-size:17px}
+.trow{grid-template-columns:86px 1fr auto;padding:14px 14px}
+.date .m,.date .w{font-size:14px}
+.date .d{font-size:31px}
+.trow .name{font-size:19px;line-height:1.2}
+.trow .sub{font-size:15.5px}
+.plan{font-size:15.5px}
+.tag{font-size:14px;padding:4px 11px}
+.chips{padding-left:114px}
+.chip{font-size:15px;min-height:40px;padding:0 15px}
+.court .when,.where{font-size:18px}
+.teamline{font-size:16px}
+.hbtn{font-size:16.5px;min-height:50px}
+.count span{font-size:18px}
+.quick a strong{font-size:17px}.quick a small{font-size:14.5px}
+h2.sec{font-size:31px}
+.filters button{font-size:16px;min-height:42px;padding:7px 16px}
+.dhead .meta{font-size:17.5px}
+.item .t{font-size:18.5px}.item .s{font-size:16px}.kv{font-size:16px}
+.btn{font-size:16.5px;min-height:48px}
+.acc .st{font-size:25px}.acc .ss{font-size:15.5px}
+.block h3{font-size:26px}
+.foot{font-size:15px}
+@media (max-width:420px){
+  .wrap{padding-left:14px;padding-right:14px}
+  .court{margin:0 -14px}
+  .trow{grid-template-columns:74px 1fr auto;gap:12px;padding:14px 12px}
+  .date{padding-right:10px}
+  .date .d{font-size:28px}
+  .chips{padding-left:12px}
+  .court h1{font-size:44px}
+}
+
+.date .m,.date .w{white-space:nowrap}
+.chips{flex-wrap:wrap;overflow:visible}
+.teamline .season{white-space:nowrap;text-align:right}
+@media (max-width:420px){.trow{grid-template-columns:84px 1fr auto}.date .m,.date .w{font-size:13.5px}.date .d{font-size:27px}}
+
+.brandbar{display:flex;align-items:center;gap:14px;margin:0 -16px;padding:14px 16px;background:#0D0D0F;color:#fff;border-bottom:4px solid var(--maple)}
+.brandbar .badge{width:60px;height:66px;box-shadow:none;border:1px solid rgba(255,255,255,.18)}
+.brandbar .badge img{width:46px}
+.brandbar .lbl{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:28px;font-weight:700;line-height:1}
+.brandbar .season{font-size:15px;color:rgba(255,255,255,.72);margin-top:3px}
+.tag.next{background:var(--ink);color:var(--paper)}
+.dock .btn{font-size:15px;padding:0 8px;min-height:48px}
+@media (max-width:420px){.brandbar{margin:0 -14px;padding:12px 14px}}
+
+.nextup{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:2px 8px;border-radius:5px;margin-bottom:5px}
+.brandbar .badge{width:74px;height:82px}.brandbar .badge img{width:58px}
+.brandbar .org{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--maple);margin-bottom:3px}
+
+.date .y{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:5px;display:inline-block;padding:0 6px;margin-bottom:4px}
+
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:16px -16px 14px;padding:10px 16px;background:var(--paper);border-bottom:1px solid var(--line)}
+.tabs a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:12px;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:22px;font-weight:700;text-decoration:none;color:var(--muted);background:var(--card);border:1px solid var(--line)}
+.tabs a span{font-family:Barlow,system-ui,sans-serif;font-size:14px;font-weight:700;background:var(--paper);border-radius:999px;padding:1px 9px}
+.tabs a[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tabs a[aria-selected="true"] span{background:var(--maple);color:#23180A}
+h3.yr{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:26px;margin:18px 0 8px;padding-bottom:4px;border-bottom:3px solid var(--maple);display:inline-block}
+@media (max-width:420px){.tabs{margin-left:-14px;margin-right:-14px;padding:10px 14px}}
+
+.date .m{font-size:17px;font-weight:700;color:var(--ink)}
+@media (max-width:420px){.date .m{font-size:16px}}
+.opps{margin-top:6px;font-size:15.5px;line-height:1.45;color:var(--ink)}
+.opps span{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.opps b{font-weight:700;color:var(--muted);margin-left:4px}
+
+.hotelbox{margin-top:8px;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,var(--maple) 16%,var(--card));border-left:4px solid var(--maple);display:flex;flex-direction:column;gap:1px}
+.hotelbox .hk{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--maple-dark)}
+.hotelbox .hn{font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.3}
+.hotelbox .hr,.hotelbox .hw{font-size:14.5px;color:var(--muted)}
+.hotelbox.none{background:transparent;border:1px dashed var(--line);border-left:4px solid var(--line)}
+.hotelbox.none .hk{color:var(--muted)}.hotelbox.none .hn{color:var(--muted);font-weight:500}
+.hotelbox.warn{border-left-color:var(--danger)}.hotelbox.warn .hw{color:var(--danger);font-weight:700}
+.chip.off,.btn.off{background:var(--line);border:1px solid var(--line);color:var(--muted);cursor:not-allowed;opacity:.75}
+.dock .btn{white-space:normal;text-align:center;line-height:1.1}
+
+/* ---- Mobile polish: bigger type, obvious tap targets ---- */
+body{font-size:18px}
+.hint{margin:0 0 12px;color:var(--muted);font-size:16px}
+.tcard{box-shadow:0 1px 0 rgba(0,0,0,.04),0 4px 14px rgba(20,22,30,.06);border-radius:16px;transition:transform .12s ease}
+.tcard.is-next{border:2px solid var(--maple)}
+.trow{grid-template-columns:88px 1fr 22px;padding:16px 14px 12px}
+.trow .name{font-size:21px;line-height:1.2}
+.trow .sub{font-size:16.5px}
+.plan,.opps{font-size:16.5px}
+.date .y{font-size:13px}.date .m{font-size:18px}.date .d{font-size:32px}.date .w{font-size:15px}
+.trip{font-size:13.5px}
+.tags{align-self:stretch;justify-content:space-between}
+.chev{font-size:32px;line-height:1;color:var(--muted);margin-top:auto}
+.nextup{font-size:13px}
+.hotelwrap{padding:0 14px 12px 116px}
+.hotelbox{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;margin:0;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--maple) 16%,var(--card));border-left:4px solid var(--maple)}
+.hotelbox.none{background:transparent;border:1px dashed var(--line);border-left:4px solid var(--line)}
+.hotelbox.warn{border-left-color:var(--danger)}
+.hinfo{display:flex;flex-direction:column;gap:2px;min-width:0}
+.hotelbox .hk{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--maple-dark)}
+.hotelbox .hk .ic{width:17px;height:17px}
+.hotelbox .hn{font-size:17px;font-weight:600;color:var(--ink);line-height:1.3}
+.hotelbox.none .hk,.hotelbox.none .hn{color:var(--muted);font-weight:500}
+.hotelbox .hw{font-size:15px;color:var(--muted)}
+.hotelbox.warn .hw{color:var(--danger);font-weight:700}
+.hbook{flex:none;display:inline-flex;align-items:center;min-height:46px;padding:0 16px;border-radius:12px;background:var(--ink);color:var(--paper);font-size:16px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hotelbox.warn .hbook{background:var(--danger);color:#fff}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;padding:0 14px 14px 116px;overflow:visible}
+.chip{justify-content:center;gap:8px;min-height:50px;border-radius:12px;font-size:16.5px;padding:0 12px;background:var(--card);border:1.5px solid var(--ink);color:var(--ink);box-shadow:0 2px 0 var(--line)}
+.chip:active{transform:translateY(1px);box-shadow:none}
+.chip .ic{width:20px;height:20px;flex:none}
+.chip.key{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:none}
+.chip.off{background:var(--line);border:1.5px solid var(--line);color:var(--muted);box-shadow:none;opacity:.8;cursor:not-allowed}
+.tabs a{font-size:23px;min-height:52px}
+.filters button{font-size:17px;min-height:44px}
+h3.yr{font-size:28px}
+@media (max-width:420px){
+  .trow{grid-template-columns:82px 1fr 18px;gap:12px;padding:16px 12px 12px}
+  .trow .name{font-size:20px}
+  .date .d{font-size:29px}
+  .hotelwrap{padding:0 12px 12px}
+  .chips{padding:0 12px 14px;grid-template-columns:1fr 1fr}
+  .chips>:last-child:nth-child(odd){grid-column:1 / -1}
+}
+
+.chip{min-width:0;white-space:normal;text-align:center;line-height:1.15;padding:4px 10px;gap:6px}
+.chips{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+@media (max-width:420px){.chips{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.chev{font-size:34px;color:var(--ink);opacity:.55}
+.opps b{white-space:nowrap}.opps b.rw{color:var(--live)}.opps b.rl{color:var(--danger);opacity:.85}
+
+/* three tabs */
+.tabs{grid-template-columns:1fr 1.15fr 1.25fr}
+.tabs a{font-size:19px;gap:6px;padding:0 4px}
+.tabs a span{font-size:13px;padding:1px 7px}
+/* calendar tab */
+.summary{display:grid;gap:2px;padding:14px 16px;border-radius:16px;background:#0D0D0F;color:#fff;text-decoration:none;border-left:6px solid var(--maple)}
+.summary .sk{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--maple)}
+.summary .sn{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:28px;font-weight:700;line-height:1.1}
+.summary .sw{font-size:16px;color:rgba(255,255,255,.8)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stats b{display:block;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:32px;line-height:1}
+.stats span{font-size:14px;color:var(--muted);font-weight:600}
+.legend{display:flex;gap:16px;font-size:15px;color:var(--muted);font-weight:600;margin:4px 2px 10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.legend .lt,.dy.ev.travel{background:var(--maple)} .legend .ll{background:var(--ink)}
+.months{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.mtile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 12px 8px;box-shadow:0 4px 14px rgba(20,22,30,.05)}
+.mtile h3{margin:0 0 8px;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:26px}
+.mtile h3 span{color:var(--muted);font-weight:600}
+.mtile.quiet{box-shadow:none;background:transparent;border-style:dashed}
+.mtile.quiet h3{font-size:21px;color:var(--muted);margin:0}
+.mtile.quiet .s{margin:2px 0 4px;font-size:15px;color:var(--muted)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px 0;text-align:center}
+.cal .wd{font-size:12.5px;font-weight:700;color:var(--muted);padding-bottom:2px}
+.dy{display:flex;align-items:center;justify-content:center;height:36px;font-size:15.5px;color:var(--ink);text-decoration:none}
+.dy.today{font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.dy.ev{font-weight:700}
+.dy.ev.travel{color:#23180A}
+.dy.ev.local{background:var(--ink);color:var(--paper)}
+.dy.ev.s{border-top-left-radius:10px;border-bottom-left-radius:10px}
+.dy.ev.e{border-top-right-radius:10px;border-bottom-right-radius:10px}
+.mlist{display:grid;gap:6px;margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+.mev{display:grid;grid-template-columns:78px 1fr auto;gap:10px;align-items:center;text-decoration:none;color:var(--ink);padding:8px 6px;border-radius:10px}
+.mev:active{background:var(--paper)}
+.md{font-weight:700;font-size:16px;line-height:1.15}
+.md small,.mn small{display:block;font-size:13.5px;font-weight:500;color:var(--muted)}
+.mn b{display:block;font-size:17px;line-height:1.2}
+.mt{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mev.travel .mt{color:var(--maple-dark)}
+@media (max-width:420px){.tabs a{font-size:17.5px}.tabs a span{display:none}}
+.mev{grid-template-columns:auto 1fr auto}.md{white-space:nowrap;min-width:64px}
+
+.tabs{grid-template-columns:1fr 1fr}
+.tabs a{font-size:22px}
+.tabs a span{font-size:14px;padding:1px 9px}
+@media (max-width:420px){.tabs a{font-size:21px}.tabs a span{display:inline}}
+.viewtoggle{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin:0 0 12px;background:var(--line);border-radius:12px}
+.viewtoggle a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:9px;font-size:17px;font-weight:700;color:var(--muted);text-decoration:none}
+.viewtoggle a .ic{width:19px;height:19px}
+.viewtoggle a[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+/* Tear-off calendar date block */
+.date{border-right:0;padding-right:0;display:flex;flex-direction:column;align-items:center}
+.cardcal{width:100%;border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--card);text-align:center}
+.cardcal .m{background:var(--ink);color:var(--paper);font-size:16px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 2px;white-space:nowrap}
+.cardcal .d{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:27px;font-weight:700;line-height:1;padding:7px 2px 2px;white-space:nowrap}
+.cardcal .w{font-size:14px;font-weight:700;color:var(--muted);padding:0 2px 7px;white-space:nowrap}
+.date .y{background:none;border:0;padding:0;margin:6px 0 0;font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.date .trip{margin-top:2px}
+.tcard.is-next .cardcal{border-color:var(--maple-dark)}
+.tcard.is-next .cardcal .m{background:var(--maple);color:#23180A}
+@media (max-width:420px){
+  .trow{grid-template-columns:86px 1fr 18px}
+  .cardcal .m{font-size:15px}
+  .cardcal .d{font-size:25px}
+}
+.cardcal .m.long{font-size:13.5px;letter-spacing:.01em}
+
+/* ---- Hub front door ---- */
+.purpose{margin:14px 0 12px;font-size:18px;font-weight:600;line-height:1.35}
+.a2hs{display:flex;align-items:center;gap:10px;justify-content:space-between;background:var(--blue-soft);color:var(--ink);border-radius:12px;padding:10px 12px;margin:0 0 12px;font-size:15px}
+.a2hs button{flex:none;border:0;background:var(--blue);color:#fff;border-radius:9px;padding:8px 12px;font-weight:700;cursor:pointer;min-height:40px}
+.a2hs-card{display:block;padding:14px}
+.a2top{display:flex;align-items:center;gap:12px}
+.a2icon{width:64px;height:64px;border-radius:15px;flex:none;box-shadow:0 2px 6px rgba(0,0,0,.18);-webkit-touch-callout:default}
+.a2txt b{display:block;font-size:16px}.a2txt span{color:var(--muted);font-size:14px}
+.a2how{margin-top:10px}.a2how summary{cursor:pointer;color:var(--blue);font-weight:700;min-height:36px;display:flex;align-items:center}
+.a2how ol{margin:4px 0 8px;padding-left:20px}.a2how li{margin:4px 0}
+.a2h{margin:10px 0 2px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.05em;color:var(--maple-dark)}
+.a2hs-card>button{margin-top:10px;width:100%}
+.status{background:#0D0D0F;color:#fff;border-radius:18px;padding:16px;border-left:6px solid var(--maple)}
+.skick{font-size:13px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--maple)}
+.sname{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:32px;font-weight:700;line-height:1.05;margin-top:4px}
+.swhen{font-size:16px;color:rgba(255,255,255,.78);margin-top:4px}
+.sline{font-size:17px;margin-top:10px}
+.sline b{color:#FBE3BC}
+.sbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sbtn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 16px;border-radius:12px;background:rgba(255,255,255,.12);color:#fff;font-weight:700;font-size:16.5px;text-decoration:none}
+.sbtn .ic{width:19px;height:19px}
+.sbtn.pri{background:var(--maple);color:#23180A}
+.sfilm{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.16);font-size:15.5px}
+.sfilm .ic{width:22px;height:22px;flex:none;color:var(--maple)}
+.sfilm span{flex:1}
+.sfilm a{flex:none;background:#fff;color:#0D0D0F;border-radius:10px;padding:9px 14px;font-weight:800;text-decoration:none}
+.attn,.launch{margin-top:16px}
+.attn h2,.launch h2{display:flex;align-items:center;gap:8px;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:26px;margin:0 0 8px}
+.attn h2 .ic{width:22px;height:22px;color:var(--danger)}
+.aitem{display:flex;align-items:center;gap:12px;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--maple);border-radius:12px;padding:12px;margin-bottom:8px;font-size:16.5px;line-height:1.35}
+.aitem.urgent{border-left-color:var(--danger)}
+.aitem.info{border-left-color:var(--line);color:var(--muted)}
+.aitem .due{color:var(--danger);font-weight:700;white-space:nowrap}
+.aitem a{flex:none;min-height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:10px;background:var(--ink);color:var(--paper);font-weight:800;text-decoration:none}
+.aitem.urgent a{background:var(--danger);color:#fff}
+.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ltile{display:flex;flex-direction:column;gap:3px;background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:12px;text-decoration:none;color:var(--ink);min-height:104px;box-shadow:0 2px 0 var(--line)}
+.ltile .ic{width:26px;height:26px;margin-bottom:4px}
+.ltile b{font-size:17.5px;line-height:1.2}
+.ltile small{font-size:14.5px;color:var(--muted);font-weight:600}
+.ltile.off{border:1.5px dashed var(--line);box-shadow:none;color:var(--muted)}
+.lgrid>:last-child:nth-child(odd){grid-column:1 / -1;min-height:auto}
+@media (min-width:640px){.lgrid{grid-template-columns:repeat(3,1fr)}.lgrid>:last-child:nth-child(odd){grid-column:auto}}
+.tabs{margin-top:22px}
+
+.cbadge{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 8px;vertical-align:middle}
+.cbadge.confirmed{background:color-mix(in srgb,var(--live) 16%,var(--card));color:var(--live)}
+.cbadge.tentative{background:transparent;color:var(--muted);border:1.5px dashed var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:5px}
+.badges .nextup{margin:0}
+.skick{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.status .cbadge.confirmed{background:rgba(60,196,130,.18);color:#6FE0A8}
+.status .cbadge.tentative{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.6)}
+.mn .cbadge{margin-top:4px;font-size:11.5px}
+.dy.ev.tentative{background:transparent!important;color:var(--ink)!important;box-shadow:inset 0 0 0 2px var(--muted);border-radius:10px}
+.legend .ltt{border:2px dashed var(--muted);background:transparent}
+.legend{flex-wrap:wrap;row-gap:6px}
+.legend .lp,.dy.ev.past.past{background:color-mix(in srgb,var(--muted) 28%,transparent)!important}
+.dy.ev.past.past{color:var(--muted)!important;box-shadow:none!important;font-weight:600}
+.mev.past{opacity:.72}.mev.past .mt{color:var(--muted)}
+.qbtn small.wrapok{white-space:normal;overflow:visible;text-overflow:clip}
+.fam{display:block;font-size:.8em;font-style:italic;font-weight:500;color:var(--muted);line-height:1.3;margin-top:2px}
+.calmore{display:block;width:100%;margin:0 0 12px;padding:10px 12px;border:1px dashed var(--line);border-radius:12px;background:transparent;color:var(--blue);font-weight:700;cursor:pointer;min-height:44px}
+.lgrid.snap{grid-template-columns:repeat(3,1fr)}
+.lgrid.snap .ltile{min-height:auto;padding:12px 10px}
+.ltile .big{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:24px;font-weight:700;line-height:1.05;margin-top:2px}
+@media (max-width:420px){.lgrid.snap{grid-template-columns:1fr}.lgrid.snap .ltile{display:grid;grid-template-columns:30px 1fr;column-gap:10px;align-items:center}.lgrid.snap .ltile .ic{grid-row:span 3;margin:0}}
+
+.sfilm{display:block}
+.sfilm .pname{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:24px;font-weight:700;line-height:1.1;margin-top:4px}
+.sfilm .prow{display:flex;align-items:center;gap:10px;margin-top:10px}
+.sfilm .prow span{flex:1}
+
+.intro{margin:16px 0 12px}
+.intro h1{margin:0;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:36px;font-weight:700;line-height:1}
+.intro p{margin:6px 0 0;font-size:17px;line-height:1.4;color:var(--muted)}
+
+/* ===== Simplified app layout ===== */
+.brandbar{padding:10px 16px;gap:12px}
+.brandbar .badge{width:52px;height:58px}.brandbar .badge img{width:40px}
+.brandbar .lbl{font-size:24px}.brandbar .org{font-size:11.5px;margin-bottom:1px}.brandbar .season{font-size:13px}
+.intro{margin:14px 0 12px}.intro h1{font-size:32px}.intro p{font-size:16px}
+.wrap.has-nav{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -4px 16px rgba(0,0,0,.06)}
+.bnav a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;min-height:54px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:700;border-radius:12px}
+.bnav a .ic{width:25px;height:25px}
+.bnav a[aria-current="page"]{color:var(--ink);background:color-mix(in srgb,var(--maple) 22%,var(--card))}
+@media (min-width:700px){.bnav{left:50%;transform:translateX(-50%);max-width:680px;border:1px solid var(--line);border-bottom:0;border-radius:16px 16px 0 0}}
+.vh{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:34px;margin:16px 0 4px;line-height:1}
+.vsub{margin:0 0 12px;color:var(--muted);font-size:16px}
+.vh + .viewtoggle{margin-top:12px}
+.sh{display:flex;justify-content:space-between;align-items:baseline;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:25px;margin:22px 0 8px}
+.sh a{font-family:Barlow,system-ui,sans-serif;font-size:16px;font-weight:700;color:var(--blue);text-decoration:none}
+.clist{display:grid;gap:8px}
+.crow{display:grid;grid-template-columns:62px 1fr 16px;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;text-decoration:none;color:var(--ink)}
+.crow:active{background:var(--paper)}
+.crow.live{border:2px solid var(--live)}
+.cdate{display:flex;flex-direction:column;align-items:center;border-radius:10px;overflow:hidden;border:1.5px solid var(--ink);text-align:center}
+.cdate b{display:block;width:100%;background:var(--ink);color:var(--paper);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;padding:3px 0;white-space:nowrap}
+.cdate i{font-style:normal;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:21px;font-weight:700;line-height:1.1;padding:3px 2px 0;white-space:nowrap}
+.cdate small{font-size:11.5px;color:var(--muted);font-weight:700;padding-bottom:3px}
+.cbody{display:flex;flex-direction:column;gap:3px;min-width:0}
+.cname{font-weight:700;font-size:18px;line-height:1.2}
+.cmeta{font-size:14.5px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.cmeta .cbadge{font-size:11px;padding:1px 6px}
+.cx{display:inline-flex;align-items:center;gap:5px;font-size:14.5px;font-weight:600}
+.cx .ic{width:16px;height:16px;flex:none}
+.cx.ok{color:var(--maple-dark)}.cx.no{color:var(--muted);font-weight:500}.cx.film{color:var(--blue)}
+.crow .chev{font-size:26px;margin:0}
+.filmcard{margin-top:22px;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;padding:14px 16px}
+.filmcard .skick{color:var(--blue)}
+.filmcard .pname{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:25px;font-weight:700;line-height:1.1;margin-top:3px}
+.filmcard .swhen{color:var(--muted);font-size:15px}
+.filmcard .sbtn{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+.filmcard .sbtn.pri{background:var(--blue);color:#fff;border-color:var(--blue)}
+.status{margin-top:0}
+.status .sname{font-size:28px}
+.status .sline{font-size:16px}
+.a2hs{margin-top:22px;font-size:14px}
+.foot{margin-top:28px}
+h3.yr{margin-top:14px}
+
+.cdate b.long{font-size:10.5px;letter-spacing:0}
+.hrow{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.hhead{display:block;padding:10px 12px 8px;text-decoration:none;color:var(--ink)}
+.hhead b{display:block;font-size:17.5px;line-height:1.2}
+.hhead span{font-size:14.5px;color:var(--muted)}
+.hbody{display:flex;align-items:center;gap:10px;padding:10px 12px;background:color-mix(in srgb,var(--maple) 14%,var(--card));border-top:1px solid var(--line)}
+.hbody>.ic{width:22px;height:22px;flex:none;color:var(--maple-dark)}
+.hi{flex:1;display:flex;flex-direction:column;min-width:0}
+.hi b{font-size:16.5px}.hi span{font-size:14.5px;color:var(--muted)}.hi span.warn{color:var(--danger);font-weight:700}
+.hrow.none .hbody{background:transparent}.hrow.none .hbody>.ic{color:var(--muted)}
+.hbody .hbook{min-height:44px;border-radius:10px;padding:0 18px}
+
+/* rows with quick links */
+.cwrap{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.cwrap .crow{border:0;border-radius:0}
+.cq{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.cq a,.cq span{display:flex;align-items:center;justify-content:center;gap:7px;min-height:46px;font-size:15.5px;font-weight:700;text-decoration:none;color:var(--ink)}
+.cq>*+*{border-left:1px solid var(--line)}
+.cq .ic{width:18px;height:18px}
+.cq a:active{background:var(--paper)}
+.cq .off{color:var(--muted);font-weight:600;background:color-mix(in srgb,var(--line) 45%,var(--card))}
+/* detail quick grid */
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 4px}
+.qbtn{display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:14px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);text-decoration:none;min-height:92px;box-shadow:0 2px 0 var(--line)}
+.qbtn .ic{width:24px;height:24px;margin-bottom:4px}
+.qbtn b{font-size:17px}
+.qbtn small{font-size:13.5px;color:var(--muted);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qbtn.pri{background:var(--ink);color:var(--paper)}
+.qbtn.pri small{color:rgba(255,255,255,.7)}
+.qbtn.off{border:1.5px dashed var(--line);box-shadow:none;color:var(--muted)}
+.qgrid>:last-child:nth-child(odd){grid-column:1 / -1;min-height:auto}
+.gameday .btn .ic,.sched .btn .ic{width:18px;height:18px}
+.sched .item.venue{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.qgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.qbtn{min-width:0}
+
+.tplans h3 .opt{font-family:Barlow,system-ui,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 7px;vertical-align:middle;margin-left:6px}
+.tpl{display:grid;gap:8px}.tpl .btn{width:100%}
+.tplans .btn .ic,.sched .btn .ic{width:18px;height:18px}
+
+.ptable{display:grid}
+.prow{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:8px;padding:10px 16px;border-top:1px solid var(--line);font-size:15.5px;align-items:start}
+.prow.ph{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+.prow .pn{font-weight:700}
+.prow .pn small{display:block;font-size:13px;font-weight:600;color:var(--maple-dark)}
+.prow.pempty span:not(.pn){color:var(--muted)}
+.prow .pnote{grid-column:1 / -1;font-size:14px;color:var(--muted);margin-top:-4px}
+
+.hbtns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line)}
+.hbtns a,.hbtns span{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;padding:4px 8px;text-align:center;font-size:15px;font-weight:700;text-decoration:none;color:var(--ink);line-height:1.15}
+.hbtns>*+*{border-left:1px solid var(--line)}
+.hbtns .ic{width:18px;height:18px;flex:none}
+.hbtns a.pri{background:var(--ink);color:var(--paper)}
+.hbtns .off{color:var(--muted);font-weight:600}
+.tplans .btn .ic,.links .btn .ic{width:18px;height:18px}
+.links .btn{gap:6px}
+
+.hbtns .done,.btn.done{color:var(--live);font-weight:700;background:color-mix(in srgb,var(--live) 12%,var(--card))}
+.btn.done{border-color:color-mix(in srgb,var(--live) 40%,var(--line));cursor:default}
+.qbtn.done{border:1.5px solid color-mix(in srgb,var(--live) 45%,var(--line));background:color-mix(in srgb,var(--live) 10%,var(--card));box-shadow:none}
+.qbtn.done small{color:var(--live)}
+
+.hbtns .done,.btn.done{color:var(--muted);background:color-mix(in srgb,var(--line) 50%,var(--card));font-weight:700}
+.btn.done{border-color:var(--line)}
+.qbtn.done{border:1.5px dashed var(--line);background:transparent}
+.qbtn.done small{color:var(--muted)}
+
+.updstrip{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 -16px;padding:7px 16px;background:color-mix(in srgb,var(--maple) 22%,var(--paper));border-bottom:1px solid var(--line)}
+.updstrip .ul{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--maple-dark)}
+.updstrip .ud{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:13.5px;font-weight:600;color:var(--ink)}
+@media (max-width:420px){.updstrip{margin:0 -14px;padding:7px 14px}}
+.rsvp{display:flex;align-items:center;gap:10px;margin:12px 0 0;padding:10px 12px;border-radius:12px;background:var(--blue-soft);color:var(--ink);font-size:15.5px;line-height:1.35}
+.rsvp>.ic{width:22px;height:22px;flex:none;color:var(--blue)}
+.rsvp span{flex:1}
+.rsvp a{flex:none;background:var(--blue);color:#fff;border-radius:9px;padding:8px 14px;font-weight:800;text-decoration:none}
+
+/* ===== App feel: native type, bigger text, grouped cards ===== */
+:root{--paper:#F2F2F7;--line:#E2E2E8;--sys:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Roboto,"Segoe UI",system-ui,sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#000;--card:#1C1C1E;--line:#2C2C2E}}
+:root[data-theme="dark"]{--paper:#000;--card:#1C1C1E;--line:#2C2C2E}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sys);font-size:18px;line-height:1.4;-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none;-webkit-font-smoothing:antialiased}
+a,button{-webkit-touch-callout:none}
+.btn,.chip,.sbtn,.qbtn,.cq a,.hbtns a,.bnav a,.viewtoggle a,.crow,.mev,.rsvp a,.hbook,.back{-webkit-user-select:none;user-select:none;transition:transform .08s ease,opacity .08s ease}
+.btn:active,.sbtn:active,.qbtn:active,.cq a:active,.hbtns a:active,.bnav a:active,.crow:active,.mev:active,.rsvp a:active{transform:scale(.97);opacity:.85}
+/* titles */
+.intro h1,.vh{font-family:var(--sys);font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.intro p,.vsub{font-size:17px}
+.sh{font-family:var(--sys);font-size:22px;font-weight:800;letter-spacing:-.01em}
+.sh a{font-size:17px}
+h3.yr{font-family:var(--sys);font-size:24px;font-weight:800;border-bottom:0;padding:0;margin:20px 0 8px}
+.dhead h1,.display{font-family:var(--sys);font-weight:800;letter-spacing:-.02em}
+.dhead h1{font-size:32px;line-height:1.1}
+.dhead .meta{font-size:17.5px}
+.back{font-size:18px;padding:10px 0;min-height:44px}
+/* cards: borderless, soft */
+.cwrap,.hrow,.block,.filmcard,.mtile,details.acc{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.crow{padding:14px}
+.cdate{border-width:0;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.cdate b{font-family:var(--sys);font-size:13px}
+.cdate i{font-size:23px}
+.cname{font-size:19.5px;font-weight:700;letter-spacing:-.01em}
+.cmeta{font-size:16px}
+.cmeta .cbadge{font-size:12px}
+.cx{font-size:16px}
+.cq a,.cq span{min-height:54px;font-size:17px}
+.cq .ic{width:20px;height:20px}
+/* next up card */
+.status{border-radius:22px;padding:18px}
+.skick{font-size:13.5px}
+.status .sname,.filmcard .pname{font-family:var(--sys);font-weight:800;letter-spacing:-.02em;font-size:28px}
+.swhen{font-size:17px}
+.sline{font-size:17.5px}
+.sbtn{min-height:54px;font-size:18px;border-radius:14px;padding:0 20px}
+.rsvp{font-size:16.5px;border-radius:16px;padding:12px 14px}
+/* detail */
+.qbtn{border-radius:18px;min-height:100px;padding:14px}
+.qbtn .ic{width:27px;height:27px}
+.qbtn b{font-size:18.5px}
+.qbtn small{font-size:15px}
+.block h3{font-family:var(--sys);font-size:21px;font-weight:800;border-bottom:0;padding:16px 16px 6px}
+.item{padding:14px 16px}
+.item .t{font-size:19px}
+.item .s{font-size:16.5px}
+.btn{font-size:17.5px;min-height:50px;border-radius:14px}
+.acc .st{font-family:var(--sys);font-size:20px;font-weight:800}
+.acc .ss{font-size:16px}
+details.acc[open]>summary{border-bottom:1px solid var(--line)}
+.prow{font-size:17px;padding:12px 16px}
+.prow .pn small{font-size:14px}
+.cbadge{font-size:12.5px}
+/* hotels */
+.hhead b{font-size:19px}.hhead span{font-size:16px}
+.hi b{font-size:18px}.hi span{font-size:16px}
+.hbtns a,.hbtns span{min-height:54px;font-size:16.5px}
+/* calendar */
+.mtile h3{font-family:var(--sys);font-size:22px;font-weight:800}
+.dy{height:40px;font-size:17px}
+.cal .wd{font-size:13px}
+.mn b{font-size:18px}.md{font-size:17px}.md small,.mn small{font-size:14.5px}
+.legend{font-size:16px}
+.viewtoggle a{font-size:18px;min-height:46px}
+/* bottom nav: app tab bar */
+.bnav{padding-top:8px;background:color-mix(in srgb,var(--card) 92%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.bnav a{font-size:13.5px;min-height:58px;gap:4px}
+.bnav a .ic{width:28px;height:28px}
+.bnav a[aria-current="page"]{background:transparent;color:var(--blue)}
+.wrap.has-nav{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+/* top strip + banner */
+.updstrip .ul{font-size:14.5px}.updstrip .ud{font-size:14px}
+.brandbar .lbl{font-family:var(--sys);font-weight:800;letter-spacing:-.01em;font-size:25px}
+.brandbar .season{font-size:14px}
+.foot{font-size:15.5px}
+.a2hs{font-size:15.5px}
+.updstrip{align-items:center}.updstrip .ul,.updstrip .ud{white-space:nowrap}
+
+.ecard{background:var(--card);border-radius:18px;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow:hidden}
+.ecard.live{box-shadow:0 0 0 2px var(--live)}
+.ehead{display:grid;grid-template-columns:62px 1fr 16px;gap:12px;align-items:center;padding:14px;text-decoration:none;color:var(--ink)}
+.ehead .chev{font-size:26px;color:var(--muted)}
+.eline{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid var(--line)}
+.eic{display:grid;place-items:center;width:34px;height:34px;border-radius:10px}
+.eic .ic{width:20px;height:20px}
+.eline.gym .eic{background:var(--ink);color:var(--paper)}
+.eline.hotel .eic{background:var(--maple);color:#23180A}
+.etx{display:flex;flex-direction:column;min-width:0}
+.etx small{font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.eline.hotel .etx small{color:var(--maple-dark)}
+.etx b{font-size:17px;font-weight:700;line-height:1.25}
+.edir{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:12px;font-size:16px;font-weight:700;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink)}
+.eline.hotel .edir{border-color:var(--maple-dark);color:var(--maple-dark)}
+.eline.sched .eic{background:var(--blue-soft);color:var(--blue)}
+.eline.tpl{text-decoration:none;color:inherit}
+.eline.tpl .eic{background:color-mix(in srgb,var(--muted) 18%,transparent);color:var(--ink)}
+.eline.tpl .etx small{color:var(--muted)}
+.prow.pempty span:not(.pn){color:var(--muted)}
+.eline.sched .etx small{color:var(--blue)}
+.eline.sched .edir{border-color:var(--blue);color:var(--blue)}
+.ogames{border-top:1px solid var(--line);padding:10px 14px 12px;background:color-mix(in srgb,var(--blue-soft) 45%,transparent)}
+.block .ogames{border:1px solid var(--line);border-radius:14px;margin:4px 0 10px;background:var(--blue-soft)}
+.ogh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.ogh span{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.ogh small{color:var(--muted);font-size:12.5px}
+.ogh svg{width:18px;height:18px;flex:none}
+.og{display:grid;grid-template-columns:62px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-top:1px dashed var(--line)}
+.og:first-of-type{border-top:0}
+.ogw{display:flex;flex-direction:column;line-height:1.2}.ogw b{font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}.ogw span{font-weight:800;font-size:16px}
+.ogm{min-width:0}.ogm b{display:block;font-size:16px;line-height:1.25}.ogm small{color:var(--muted);font-size:14px}
+.jy{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;padding:5px 8px;border-radius:10px;line-height:1.15;text-align:center}
+.jy b{font-size:13px;text-transform:uppercase;letter-spacing:.05em}.jy i{font-style:normal;font-size:12.5px;font-weight:600}
+.jy.home{background:#fff;color:#111;border:2px solid #111}
+.jy.away{background:#111;color:#fff;border:2px solid #111}
+.jy.tbd{border:1.5px dashed var(--muted);color:var(--muted)}
+.ogn{margin:8px 0 0;font-size:13px;color:var(--muted)}
+.edir .ic{width:17px;height:17px}
+.eacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));border-top:1px solid var(--line)}
+.ea{display:flex;align-items:center;justify-content:center;gap:7px;min-height:54px;padding:4px 10px;text-align:center;font-size:16px;font-weight:700;text-decoration:none;color:var(--ink);line-height:1.15}
+.ea+.ea{border-left:1px solid var(--line)}
+.ea .ic{width:19px;height:19px;flex:none}
+.ea.pri{background:var(--ink);color:var(--paper)}
+.ea.off{color:var(--muted);font-weight:600;background:color-mix(in srgb,var(--line) 40%,var(--card))}
+.eacts:has(.ea:nth-child(2)){grid-template-columns:1fr 1fr}
+.bnav a span{white-space:nowrap}
+
+.cx.clip{color:#B4235B}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cx.clip{color:#FF7AB0}}
+.clipsall{display:grid;grid-template-columns:44px 1fr 14px;gap:12px;align-items:center;margin:4px 0 14px;padding:14px;border-radius:18px;background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.05);text-decoration:none;color:var(--ink)}
+.clipsall .ic{width:44px;height:44px;padding:9px;border-radius:12px;background:#B4235B;color:#fff}
+.clipsall b{display:block;font-size:18px}.clipsall small{font-size:15.5px;color:var(--muted)}
+.clipsall i{font-style:normal;font-size:26px;color:var(--muted)}
+.clips .btn .ic{width:18px;height:18px}
+
+.fhead{display:flex;align-items:center;gap:8px;padding:14px 16px 6px;border-top:1px solid var(--line)}
+.fhead .ic{width:20px;height:20px}
+.fhead span{font-weight:800;font-size:17px}
+.fhead small{margin-left:auto;font-size:14px;color:var(--muted);font-weight:600}
+.frow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 12px 8px;padding:12px 14px;border-radius:14px;text-decoration:none;color:var(--ink);min-height:56px}
+.frow.yt{background:color-mix(in srgb,var(--blue) 10%,var(--card))}
+.frow.gp{background:color-mix(in srgb,#B4235B 9%,var(--card))}
+.ft{display:flex;flex-direction:column;min-width:0}
+.ft b{font-size:17px;line-height:1.25}
+.ft small{font-size:14.5px;color:var(--muted)}
+.fgo{flex:none;font-weight:800;font-size:16px}
+.frow.yt .fgo{color:var(--blue)}
+.frow.gp .fgo{color:#B4235B}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .frow.gp .fgo{color:#FF7AB0}}
+.frow:active{transform:scale(.98);opacity:.85}
+.ecard.isnext{box-shadow:0 0 0 2.5px var(--maple)}
+.ekick{background:#0D0D0F;color:var(--maple);font-size:13.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:9px 14px}
+.ecard.live .ekick{background:var(--live);color:#fff}
+.sh .shn{font-family:var(--sys);font-size:15px;font-weight:800;background:var(--line);color:var(--ink);border-radius:999px;padding:2px 10px}
+.bnav{grid-template-columns:repeat(3,1fr)}
+
+.tent{display:flex;align-items:flex-start;gap:10px;margin:10px 0 0;padding:12px 14px;border-radius:16px;background:color-mix(in srgb,#F59E0B 16%,var(--card));color:var(--ink);font-size:16.5px;line-height:1.35}
+.tent>.ic{width:22px;height:22px;flex:none;color:#B45309;margin-top:1px}
+.tent small{display:block;margin-top:4px;font-size:14.5px;color:var(--muted)}
+.btn.danger{background:var(--danger);color:#fff;border-color:var(--danger)}
+
+.chk{margin-top:12px;background:var(--card);border-radius:18px;padding:12px 14px 10px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.chk.compact{margin:0;border-radius:0;box-shadow:none;border-top:1px solid var(--line)}
+.chkh{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.chkh .ic{width:20px;height:20px;color:var(--live)}
+.chkh b{font-size:17px}
+.chkh small{margin-left:auto;font-size:14px;color:var(--muted);font-weight:700}
+.chki{display:flex;align-items:flex-start;gap:12px;padding:9px 0;font-size:16.5px;line-height:1.35;cursor:pointer}
+.chki input{flex:none;width:24px;height:24px;margin:0;accent-color:var(--live)}
+.chki em{font-style:normal;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-right:4px;vertical-align:1px}
+.chki.done span{color:var(--muted);text-decoration:line-through}
+.chkn{font-size:13px;color:var(--muted);padding-top:2px}
+.tpl .s{margin-top:8px;font-size:15.5px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="application/json" id="data">{"team":{"name":"Sports Academy Swish NorCal Jr EYBL 14U","label":"Jr EYBL C/O 2031","season":"2026–27 season"},"links":{"leagueapps":"","groupme":"","whatsapp":"","youtube":"","travelSheet":"https://docs.google.com/spreadsheets/d/1fFVU18DYGFk3npgPyqJQRuo4isyvEu1O_ZY0aCr4L-o/edit","travelSynced":"Wed, Nov 4"},"tournaments":[{"id":"fall-shootout-2026","name":"Fall Shootout","start":"2026-09-26","end":"2026-09-27","city":"Livermore, CA","trip":"local","division":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLbLY8k3pYlck","hotels":[],"venues":[{"name":"The WE Facility","address":"4671-C Las Positas Rd, Livermore, CA"}],"games":[{"opponent":"Cal Stars Premier HS","label":"","result":"","url":"","sn":""},{"opponent":"Ambition Prep HS","label":"","result":"","url":"","sn":""},{"opponent":"MIE 14U","label":"","result":"","url":"","sn":""},{"opponent":"Chuck Hayes","label":"","result":"","url":"","sn":""}],"notes":"","info":"","site":"","played":"4","confirmed":"confirmed"},{"id":"prelude-2026","name":"HHH: The Prelude","start":"2026-10-31","end":"2026-11-01","city":"Anaheim, CA","trip":"travel","confirmed":"confirmed","division":"","info":"https://the-passport.com/events/11430/hype-her-hoops-the-prelude-2026/schedule?dates=2026-10-31&myGames=true&teams=52990","schedChecked":"","site":"https://hypeherhoopscircuit.com/store/team-info/the-prelude/","plans":{"Angelica":{"arr":"8pm"}},"groupme":"","groupHotel":"","clips":"Saturday 10/31/2026 https://photos.app.goo.gl/GDJQcAgr2acwnejd7\nSunday 11/1/2026 https://photos.app.goo.gl/oNL4E1BEUfrTD2wM6","playlist":"https://www.youtube.com/playlist?list=PLVjuysVd6cjs","statsnerd":"","played":"5","hotels":[{"name":"Towneplace Suites by Marriott","address":"23150 Lake Center Drive, Lake Forest, CA 92630","map":"","url":"","status":"unavailable","code":"","rate":"","deadline":"","notes":""}],"venues":[{"name":"OGP Anaheim","address":"1500 S Anaheim Blvd, Anaheim, CA","day":""}],"games":[],"travelTab":"Oct 31 HHH Prelude","checklist":"Create a HHH Passport account if you don’t have one yet, and sign the waiver.\nOptional: Halloween costume for the event on Saturday, Oct 31.","chkTpl":"auto","notes":"HHH lists OGP Ladera as the host gym. Last year The Prelude also used OGP Anaheim, so check the schedule for which gym each game is in.\nHeads-up from past visitors (confirm at the door): OGP Ladera parking is about $20/day, spectator admission has been around $20 for adults, and outside food and chairs are not allowed."},{"id":"wsw-1-2026","name":"Select Events: Winter Series West I","start":"2026-11-14","end":"2026-11-15","city":"Auburn, WA","trip":"travel","confirmed":"confirmed","division":"","info":"","site":"https://www.selecteventsbasketball.com/","plans":{"Angelica":{"arr":"Fri, 10:40pm PST","dep":"Sun, 8:30pm PST","how":"fly","note":"AS 706, Holiday Inn"},"Bhumi":{"arr":"Fri, 12:20pm PST","dep":"Mon, 7am PST","how":"fly","note":"United from SFO, Holiday Inn"},"Claire":{"arr":"Thursday Night","dep":"Sunday Evening 20:35","how":"fly","note":"Southwest SJC, Four Points Hotel by the airport"},"Ellie":{"arr":"Fri, 11:55 PM","dep":"Mon 8:05 AM","how":"fly","note":"Holiday Inn"},"Jordyn":{"arr":"Fri, 10:10pm PST","dep":"Sun, 8:40pm PST","how":"fly","note":"WN 0855"},"Natalie":{"arr":"Fri, 6pm","dep":"Sun 8:40pm","how":"fly","note":"holiday Inn Express & Suites, Auburn"},"Summer":{"arr":"Fri, 10:00 pm","dep":"Sun, 8:30 pm","how":"fly","note":"AS1359, AS706, Holiday Inn"}},"groupme":"","playlist":"","statsnerd":"","played":"","hotels":[{"name":"Holiday Inn Express & Suites Auburn Downtown","address":"22406 Pacific Hwy S, Des Moines, WA 98198","map":"https://maps.app.goo.gl/tBWQixYwKNcvuVGg9","url":"","status":"unavailable","code":"","rate":"","deadline":"","notes":""}],"venues":[{"name":"Fieldhouse USA Auburn","address":"1101 Outlet Collection Way, Suite 1275, Auburn, WA 98002"}],"games":[],"notes":"","groupHotel":"none","travelTab":"Nov 14 Winter Series West I","travelGid":"162593688"},{"id":"wsw-2-2026","name":"Jr EYBL Seal Beach","start":"2026-12-05","end":"2026-12-06","city":"Seal Beach, CA","trip":"travel","confirmed":"tentative","division":"","info":"","site":"","plans":{"Angelica":{"how":"drive"},"Bhumi":{"arr":"Friday 3PM","dep":"Sunday","how":"drive"}},"groupme":"","playlist":"","statsnerd":"","played":"","hotels":[{"name":"Courtyard by Marriott Cypress Anaheim/Orange County","address":"5865 Katella Ave, Cypress, CA 90630","map":"https://maps.app.goo.gl/gDafyRws8DmNGcX57","url":"https://app.marriott.com/resview2?id=1791659852856&key=GRP&app=resvlink","status":"available","code":"","rate":"$145","deadline":"","notes":""}],"venues":[{"name":"The MAP Sports Facility","address":"12552 Western Ave, Garden Grove, CA 92841"}],"games":[],"notes":"","groupHotel":"","travelTab":"Dec 5 Jr EYBL Seal Beach","travelGid":"1795853365"},{"id":"candy-cane-2026","name":"Sports Academy National Cup","start":"2026-12-19","end":"2026-12-20","city":"Seal Beach, CA","trip":"travel","confirmed":"tentative","division":"","info":"","site":"","plans":{},"groupme":"","playlist":"","statsnerd":"","played":"","hotels":[{"name":"Courtyard by Marriott Cypress Anaheim/Orange County","address":"5865 Katella Ave, Cypress, CA 90630","map":"https://maps.app.goo.gl/gDafyRws8DmNGcX57","url":"https://app.marriott.com/resview2?id=1792516539347&key=GRP&app=resvlink","status":"","code":"","rate":"","deadline":"","notes":""}],"venues":[{"name":"AIM Sports Group","address":""}],"games":[],"notes":"","groupHotel":"","travelTab":"Dec 19 National Cup","travelGid":"1905343089"},{"id":"wsw-3-2027","name":"Select Events: Winter Series West III","start":"2027-01-09","end":"2027-01-10","city":"Las Vegas, NV","trip":"travel","division":"","groupme":"","playlist":"","hotels":[],"venues":[{"name":"Las Vegas Basketball Center","address":"7350 Prairie Falcon Rd, Las Vegas, NV 89128"}],"games":[],"notes":"","info":"","site":"https://www.selecteventsbasketball.com/","confirmed":"confirmed","groupHotel":"none","travelTab":"Jan 9 Winter Series West III","travelGid":"1705436342"},{"id":"mlk-2027","name":"Jr EYBL","start":"2027-01-16","end":"2027-01-17","city":"Auburn, WA","trip":"travel","confirmed":"tentative","division":"","info":"","site":"","plans":{},"groupme":"","clips":"","playlist":"","statsnerd":"","played":"","hotels":[],"venues":[],"games":[],"notes":"","groupHotel":"none","travelTab":"Jan 16 Jr EYBL Auburn","travelGid":"1117449701"},{"id":"wsw-champs-2027","name":"Select Events: Winter Series West Championships","start":"2027-01-30","end":"2027-01-31","city":"Thousand Oaks, CA","trip":"travel","division":"","groupme":"","playlist":"","hotels":[],"venues":[{"name":"Sports Academy","address":"1011 Rancho Conejo Blvd, Thousand Oaks, CA 91320"}],"games":[],"notes":"","info":"","site":"https://www.selecteventsbasketball.com/","confirmed":"confirmed","groupHotel":"none","travelTab":"Jan 30 WSW Championships","travelGid":"2128891845"},{"id":"back-to-ball-2026","name":"Power Series: Back to Ball Showdown","start":"2026-09-19","end":"2026-09-20","city":"Martinez, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLIRHxbXXkeVw","statsnerd":"","played":"3","hotels":[],"venues":[{"name":"Power Sports Academy","address":"360 Ferry St, Martinez, CA 94553"}],"games":[{"opponent":"Cal Stars Elite 14U","label":"","result":"","url":"","sn":""},{"opponent":"Team NorCal 14U","label":"","result":"","url":"","sn":""},{"opponent":"CV Elite 14U","label":"","result":"","url":"","sn":""}],"notes":"","confirmed":"confirmed"},{"id":"summer-finale-2026","name":"Summer Finale Tournament","start":"2026-08-30","end":"2026-08-30","city":"Oakland, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLLortm3Ln59A","statsnerd":"","played":"2","hotels":[],"venues":[{"name":"OGP Oakland","address":"31 4th St, Oakland, CA 94607"}],"games":[{"opponent":"Lady Blaze","label":"","result":"","url":"","sn":""},{"opponent":"Team United 14U","label":"","result":"","url":"","sn":""}],"notes":"","confirmed":"confirmed"},{"id":"summer-champs-2026","name":"Summer Championships 15/16U","start":"2026-08-15","end":"2026-08-15","city":"Martinez, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLZaHy9WQaWoE","statsnerd":"","played":"2","hotels":[],"venues":[{"name":"Power Sports Academy","address":"360 Ferry St, Martinez, CA 94553"}],"games":[{"opponent":"MIE 15U","label":"","result":"","url":"","sn":""},{"opponent":"Elevate","label":"","result":"","url":"","sn":""}],"notes":"","confirmed":"confirmed"},{"id":"spring-classic-2026","name":"Spring Classic","start":"2026-05-23","end":"2026-05-24","city":"Thousand Oaks, CA","trip":"travel","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl5rYguiJQ-T7A8WabanHQkF","statsnerd":"","played":"4","hotels":[],"venues":[{"name":"Sports Academy","address":"1011 Rancho Conejo Blvd, Thousand Oaks, CA 91320"}],"games":[{"opponent":"AVAC Golden Girls","label":"Sat May 23","result":"L 45-53","url":"","sn":"","note":"Video in StatsNerd"},{"opponent":"HDHA","label":"Sat May 23","result":"W 54-7","url":"","sn":"","note":"Video in StatsNerd"},{"opponent":"HDHA","label":"Sun May 24","result":"W 44-7","url":"","sn":"","note":"Video in StatsNerd"},{"opponent":"AVAC Golden Girls","label":"Sun May 24","result":"L 29-39","url":"","sn":"","note":"Video in StatsNerd"}],"notes":"","confirmed":"confirmed"},{"id":"spring-surge-2026","name":"Spring Surge","start":"2026-05-02","end":"2026-05-03","city":"Martinez, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl7k_qoQ1R730_caF1rCK8Jn","statsnerd":"","played":"4","hotels":[],"venues":[{"name":"Power Sports Academy","address":"360 Ferry St, Martinez, CA 94553"}],"games":[{"opponent":"YBA 7th Pink 13U","label":"Sat May 2","result":"W 33-14","url":"https://youtu.be/xSo6ROcvFOM","sn":"","note":""},{"opponent":"Cencal Chao","label":"Sat May 2","result":"W 44-36","url":"https://youtu.be/sovVFPrYF_U","sn":"","note":""},{"opponent":"YBA Gray 7th/13U","label":"Sun May 3","result":"W 39-35","url":"https://youtu.be/2ftVbAYolf4","sn":"","note":""},{"opponent":"Cal Stars NB 7th Red","label":"Sun May 3","result":"W 41-25","url":"https://youtu.be/8lM8T3Kl4oc","sn":"","note":""}],"notes":"","confirmed":"confirmed"},{"id":"elite-earned-2026","name":"Elite is Earned","start":"2026-04-18","end":"2026-04-19","city":"Roseville, CA","trip":"travel","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl7-yJV_ySDLdFG2ST_P3wHd","statsnerd":"","played":"3","hotels":[],"venues":[{"name":"The Grounds","address":"Roseville, CA"}],"games":[{"opponent":"Cal Stars 7th Select Bay","label":"Sat Apr 18","result":"L 32-56","url":"https://youtu.be/S36zyL032Tw","sn":"","note":""},{"opponent":"Chuck Hayes","label":"Sat Apr 18","result":"W 39-31","url":"https://youtu.be/kEahskzawL4","sn":"","note":""},{"opponent":"Cal Stars Sac","label":"Sat Apr 18","result":"W 47-36","url":"https://youtu.be/RFYhzCHEdc8","sn":"","note":""}],"notes":"","confirmed":"confirmed"},{"id":"ionescu-2026","name":"Ionescu Challenge","start":"2026-04-11","end":"2026-04-12","city":"Martinez, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl4_mKZqWc9dkuCNkv5iDSfL","statsnerd":"","played":"4","hotels":[],"venues":[{"name":"Power Sports Academy","address":"360 Ferry St, Martinez, CA 94553"}],"games":[{"opponent":"Team Kidd 13U","label":"Sat Apr 11","result":"L 36-37","url":"https://youtu.be/7HSvEH56WVQ","sn":"","note":""},{"opponent":"Team Elite 7th","label":"Sat Apr 11","result":"W 47-15","url":"https://youtu.be/hFGrymVRouo","sn":"","note":""},{"opponent":"Cal Stars 7th Jr EYBL","label":"Sun Apr 12","result":"L 19-18","url":"https://youtu.be/ehSuHcBepXg","sn":"","note":""},{"opponent":"Cal Stars 7th Select Bay","label":"Sun Apr 12","result":"L 36-40","url":"https://youtu.be/QvOGxQRtFfw","sn":"","note":""}],"notes":"","confirmed":"confirmed"},{"id":"we-invitational-2026","name":"WE Invitational","start":"2026-04-11","end":"2026-04-11","city":"Livermore, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl5hRZIvl4AClf7SfqzrRL4_","statsnerd":"","played":"2","hotels":[],"venues":[{"name":"The WE Facility","address":"4671-C Las Positas Rd, Livermore, CA"}],"games":[{"opponent":"Barkada","label":"Sat Apr 11","result":"W 46-10","url":"https://youtu.be/HzsVwZqiL14","sn":"","note":""},{"opponent":"OTD Green","label":"Sat Apr 11","result":"W 39-15","url":"https://youtu.be/3Am0xfvGHjA","sn":"","note":""}],"notes":"","confirmed":"confirmed"},{"id":"welcome-bay-2026","name":"HHH: Welcome to the Bay","start":"2026-03-28","end":"2026-03-29","city":"Oakland, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl5MYZePxdlWW1gpQ9tkMqZo","statsnerd":"","played":"4","hotels":[],"venues":[{"name":"OGP Oakland","address":"31 4th St, Oakland, CA 94607"}],"games":[{"opponent":"Bay City 7th 3SSB","label":"Sat Mar 28","result":"L 31-50","url":"https://youtu.be/BUbWWsyf7a0","sn":"","note":""},{"opponent":"Cal Stars 7th Jr EYBL","label":"Sat Mar 28","result":"L 23-35","url":"https://youtu.be/S0fM54bVvLg","sn":"","note":""},{"opponent":"Cal Stars 7th Jr EYBL","label":"Sun Mar 29","result":"W 41-38","url":"","sn":"","note":""},{"opponent":"Cal Storm Team Aari","label":"Sun Mar 29","result":"W 33-30","url":"","sn":"","note":""}],"notes":"","confirmed":"confirmed"},{"id":"mlk-2026","name":"HHH: Weekend of Champions","start":"2026-01-17","end":"2026-01-19","city":"Oakland, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl4UwDqU8SuTSzU6fB15Pye0","statsnerd":"","played":"6","hotels":[],"venues":[{"name":"OGP Oakland","address":"31 4th St, Oakland, CA 94607"}],"games":[{"opponent":"Mana","label":"","result":"","url":"","sn":""},{"opponent":"Team Inspire","label":"","result":"","url":"","sn":""},{"opponent":"Thunder & Lightning","label":"","result":"","url":"","sn":""},{"opponent":"Team NorCal Jr 3SSB 13U","label":"","result":"","url":"","sn":""},{"opponent":"Why Not Premier Jr","label":"","result":"","url":"","sn":""}],"notes":"","confirmed":"confirmed"},{"id":"candy-cane-2025","name":"HHH: Candy Cane Classic","start":"2025-12-20","end":"2025-12-21","city":"Oakland, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"https://www.youtube.com/playlist?list=PLQzoWnKmuNl4qNuRkKFqnmZfy8Wp7aZVm","statsnerd":"","played":"4","hotels":[],"venues":[{"name":"OGP Oakland","address":"31 4th St, Oakland, CA 94607"}],"games":[{"opponent":"SJ Spartans","label":"","result":"","url":"","sn":""},{"opponent":"KHoopz Storm","label":"","result":"","url":"","sn":""},{"opponent":"Team Infinity x Uneqld","label":"","result":"","url":"","sn":""},{"opponent":"St. Sebastian","label":"","result":"","url":"","sn":""}],"notes":"","confirmed":"confirmed"},{"id":"culture-2026","name":"Culture Showcase","start":"2026-06-06","end":"2026-06-07","city":"Livermore, CA","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"","statsnerd":"","played":"5","hotels":[],"venues":[{"name":"The WE Facility","address":"4671-C Las Positas Rd, Livermore, CA"}],"games":[{"opponent":"Underrated HS","label":"Sat Jun 6","result":"L 29-32","url":"","sn":"","note":"Video in StatsNerd"},{"opponent":"Underrated MS","label":"Sat Jun 6","result":"W","url":"","sn":"","note":"Video in StatsNerd"},{"opponent":"Chuck Hayes","label":"Sat Jun 6","result":"W 59-51","url":"https://www.youtube.com/watch?v=58jpIqR0i7Q","sn":"","note":""},{"opponent":"Boys team 13/14U","label":"Sun Jun 7","result":"W","url":"","sn":"","note":"Scrimmage vs boys team"},{"opponent":"Boys team 13/14U","label":"Sun Jun 7","result":"W","url":"","sn":"","note":"Scrimmage vs boys team"}],"notes":"","confirmed":"confirmed"},{"id":"heart-of-texas-2026","name":"Select Events: Heart of Texas Showcase","start":"2026-05-15","end":"2026-05-17","city":"Texas","trip":"travel","division":"","info":"","site":"","groupme":"","playlist":"","statsnerd":"","played":"4","hotels":[],"venues":[],"games":[{"opponent":"AB Elite 2032","label":"Fri May 15","result":"L 32-48","url":"","sn":"","note":"No video"},{"opponent":"Oklahoma Swarm 2031 Elite","label":"Sat May 16","result":"W 49-48","url":"https://youtu.be/afPo3dDSenY","sn":"","note":""},{"opponent":"Express United Nebraska","label":"Sat May 16","result":"W 50-34","url":"https://youtu.be/VjN-EYfeemA","sn":"","note":""},{"opponent":"Be Someone Elite","label":"Sun May 17","result":"L 28-51","url":"https://youtu.be/MJzAGaEguEg","sn":"","note":""}],"notes":"","confirmed":"confirmed"},{"id":"march-madness-2026","name":"March Madness Invitational","start":"2026-03-14","end":"2026-03-15","city":"","trip":"local","division":"","info":"","site":"","groupme":"","playlist":"","statsnerd":"","played":"4","hotels":[],"venues":[],"games":[{"opponent":"PMA Knights","label":"Sat Mar 14","result":"W 21-2","url":"","sn":"","note":""},{"opponent":"Chuck Hayes Blue","label":"Sat Mar 14","result":"W 35-20","url":"","sn":"","note":""},{"opponent":"AYB Snipers","label":"Sun Mar 15","result":"W 41-28","url":"","sn":"","note":""},{"opponent":"Big Time Elite","label":"Sun Mar 15","result":"W 28-7","url":"","sn":"","note":""}],"notes":"","confirmed":"confirmed"},{"id":"tmungijuz3ud5","name":"Fall Preview Showcase","start":"2026-10-10","end":"2026-10-11","city":"Martinez, CA","trip":"local","confirmed":"confirmed","division":"8/9","info":"https://bracketteam.com/event/8275/Fall_Preview_Showcase/schedules","site":"https://bracketteam.com/event/8275/Fall_Preview_Showcase/schedules/schedule?division_id=67632","plans":{},"groupme":"","groupHotel":"","clips":"Saturday, Oct 10, 2026 https://photos.app.goo.gl/hNKnYHXk8ndytnuQ8\nSunday, Oct 11, 2026 https://photos.app.goo.gl/MkFMWh3T66rYLo7v6","playlist":"","statsnerd":"","played":"","hotels":[],"venues":[{"name":"Power Sports Academy","address":"360 Ferry St, Martinez, CA 94553"}],"games":[],"travelTab":"","checklist":"","notes":""},{"id":"tmungk5s2a4lu","name":"Fall Championship","start":"2026-10-17","end":"2026-10-18","city":"Martinez, CA","trip":"local","confirmed":"confirmed","division":"8/9","info":"https://bracketteam.com/event/8276/Fall_Championship/schedules","site":"","plans":{},"groupme":"","groupHotel":"","clips":"Saturday, Oct 17, 2026 https://photos.app.goo.gl/oCiwPtQTy2pr4Mjt7\nSunday, Oct 18, 2026 https://photos.app.goo.gl/xVjLQRKrTGB7C8kY8","playlist":"https://www.youtube.com/playlist?list=PLSojG9s3NqoE","statsnerd":"","played":"","hotels":[],"venues":[{"name":"Power Sports Academy","address":"360 Ferry St, Martinez, CA 94553"}],"games":[],"travelTab":"","checklist":"","notes":""},{"id":"clips-2026-09-12","name":"WE Facility","start":"2026-09-12","end":"2026-09-12","city":"Livermore, CA","trip":"local","confirmed":"confirmed","division":"","info":"","site":"","plans":{},"groupme":"","clips":"Saturday, Sep 12, 2026 https://photos.app.goo.gl/Kez81YTb2aDDfo1aA","playlist":"","statsnerd":"","played":"","hotels":[],"venues":[],"games":[],"notes":""},{"id":"clips-2026-08-08","name":"WE Facility","start":"2026-08-08","end":"2026-08-08","city":"Livermore, CA","trip":"local","confirmed":"confirmed","division":"","info":"","site":"","plans":{},"groupme":"","clips":"Saturday, Aug 8, 2026 https://photos.app.goo.gl/uKEt4Si5iQfqY17b9","playlist":"","statsnerd":"","played":"","hotels":[],"venues":[],"games":[],"notes":""},{"id":"tmvoiylp1ym4p","name":"Jr EYBL","start":"2027-02-20","end":"2027-02-21","city":"Gilbert, AZ","trip":"travel","confirmed":"tentative","division":"","info":"","site":"","plans":{},"groupme":"","clips":"","playlist":"","statsnerd":"","played":"","hotels":[],"venues":[],"games":[],"notes":"","groupHotel":"none","travelTab":"Feb 20 Jr EYBL Gilbert","travelGid":"868150299"}],"updatedAt":"2026-11-04T17:09:20.265Z","roster":["Angelica","Bhumi","Brooke","Claire","Ellie","Jordyn","Natalie","Summer","Surina"]}</script>
+<script id="app">
+(function(){
+const HEAD = (title) => `<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${esc(title)}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">`;
+
+let state;
+try { state = JSON.parse(document.getElementById('data').textContent); } catch(e){ state = {team:{name:'Our Team',season:''},links:{},tournaments:[]}; }
+state.team = state.team || {name:'Our Team',season:''};
+state.links = state.links || {};
+state.tournaments = state.tournaments || [];
+
+let lastHome='#home', tripFilter = 'all', homeTab = 'upcoming', upView = 'calendar', calEarly = false;
+function tripOf(t){return t.trip || ((t.hotels||[]).some(h=>h.name||h.url)?'travel':'local');}
+function hasFilm(g){return !!(safeUrl(g.url)||safeUrl(g.sn));}
+function booked(h){return !!h&&(h.status==='unavailable'||h.status==='booked');}
+function pend(t){return !!t&&t.confirmed==='tentative';}
+function bookBy(t){const h=firstHotel(t); if(!h||!h.deadline||booked(h)) return null; const s=parseD(t.start); const y=s?s.getFullYear():today().getFullYear();
+  let d=new Date(h.deadline+' '+y); if(isNaN(d)) d=new Date(h.deadline); if(isNaN(d)) return {text:h.deadline,days:null};
+  d=new Date(d.getFullYear(),d.getMonth(),d.getDate()); if(s&&d>s) d.setFullYear(d.getFullYear()-1);
+  return {text:d.toLocaleDateString(undefined,{month:'short',day:'numeric'}),days:Math.round((d-today())/864e5)};}
+const ICONS={
+ pin:'<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+ cal:'<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+ globe:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"/>',
+ bed:'<path d="M3 18V7M3 13h18v5M21 13a3 3 0 0 0-3-3h-7v3"/><circle cx="7" cy="10.5" r="1.8"/>',
+ play:'<rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M10.5 9.5v5l4.2-2.5z" fill="currentColor"/>',
+ stats:'<path d="M5 20V11M12 20V5M19 20v-7"/>',
+ chat:'<path d="M4 5.5h16v10H9l-5 4z"/>',
+ check:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.2l2.4 2.4 4.8-5"/>',
+ alert:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2h.01"/>',
+ arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ home:'<path d="M4 11l8-6.5 8 6.5V20h-5v-5.5H9V20H4z"/>',
+ photo:'<rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/>',
+ list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2" fill="currentColor"/><circle cx="4.5" cy="12" r="1.2" fill="currentColor"/><circle cx="4.5" cy="18" r="1.2" fill="currentColor"/>',
+ ball:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5v17M6 6c3 3 3 9 0 12M18 6c-3 3-3 9 0 12"/>'
+};
+function ic(n){return `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[n]}</svg>`;}
+const LOGO='data:image/png;base64,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';
+function firstVenue(t){return (t.venues||[]).find(v=>v.name||v.address);}
+function venueMap(v){return maps(((v.name||'')+' '+(v.address||'')).trim());}
+function allVenues(t){return (t.venues||[]).filter(v=>v.name||v.address);}
+function dayTag(v){return v&&v.day?`<span class="vday">${esc(v.day)}</span>`:'';}
+function noGH(t){return t.groupHotel==='none';}
+function ghTBD(t){return t.groupHotel==='tbd';}
+function firstHotel(t){return (noGH(t)||ghTBD(t))?null:(t.hotels||[]).find(h=>h.name||h.url);}
+let artifactNs = null, canEdit = false, readOnly = false, sheet = null;
+const root = document.getElementById('root');
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function safeUrl(u){u=(u||'').trim(); if(!u) return ''; if(!/^https?:\/\//i.test(u)) u='https://'+u; try{const x=new URL(u); return /^https?:$/.test(x.protocol)?x.href:'';}catch(e){return '';}}
+function maps(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);}
+function uid(){return 't'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function parseD(s){if(!s) return null; const [y,m,d]=s.split('-').map(Number); return (y&&m&&d)?new Date(y,m-1,d):null;}
+function today(){const n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate());}
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtRange(a,b){const s=parseD(a), e=parseD(b)||s; if(!s) return 'Dates TBD';
+  const opt={weekday:'short',month:'short',day:'numeric'};
+  const optY={...opt,year:'numeric'};
+  if(+s===+e) return s.toLocaleDateString(undefined,optY);
+  return s.toLocaleDateString(undefined,s.getFullYear()===e.getFullYear()?opt:optY)+' – '+e.toLocaleDateString(undefined,optY);}
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+function dateBox(t){const s=parseD(t.start), e=parseD(t.end)||s; if(!s) return '<div class="m">TBD</div><div class="d">?</div>';
+  const same=+s===+e, sameMon=s.getMonth()===e.getMonth();
+  const mon=same||sameMon?MON[s.getMonth()]:MON[s.getMonth()]+'–'+MON[e.getMonth()];
+  const days=same?String(s.getDate()):s.getDate()+'–'+e.getDate();
+  const dow=same?DOW[s.getDay()]:DOW[s.getDay()]+'–'+DOW[e.getDay()];
+  const yr=s.getFullYear()===e.getFullYear()?String(s.getFullYear()):s.getFullYear()+'–'+String(e.getFullYear()).slice(2);
+  return `<div class="cardcal"><div class="m${mon.includes('–')?' long':''}">${mon}</div><div class="d">${days}</div><div class="w">${dow}</div></div><div class="y">${yr}</div>`;}
+function status(t){const s=parseD(t.start), e=parseD(t.end)||s, n=today(); if(!s) return {k:'tbd'};
+  if(n<s) return {k:'up',days:Math.round((s-n)/864e5)}; if(n<=e) return {k:'live'}; return {k:'past'};}
+function sorted(){return [...state.tournaments].sort((a,b)=>(a.start||'9999').localeCompare(b.start||'9999'));}
+
+function toast(msg,ms){const d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=msg;document.body.appendChild(d);setTimeout(()=>d.remove(),ms||2400);}
+
+/* ---------- Views ---------- */
+function linkTile(label,sub,url){const u=safeUrl(url); return u?`<a href="${esc(u)}" target="_blank" rel="noopener"><strong>${esc(label)}</strong><small>${esc(sub)}</small></a>`:'';}
+
+function srcName(u){try{const h=new URL(u).hostname.replace(/^www\./,'');
+  const map=[['exposureevents','Exposure Events'],['tourneymachine','Tourney Machine'],['leagueapps','LeagueApps'],['hypeherhoops','Hype Her Hoops'],['selectevents','Select Events'],['basketballtournaments','Basketball Tournaments'],['sportsengine','SportsEngine'],['google.','Google'],['nike','Nike EYBL'],['3ssb','3SSB']];
+  const f=map.find(([k])=>h.includes(k)); return f?f[1]:h;}catch(e){return 'the tournament site';}}
+function linksOf(v){return String(v||'').split(/\n|,(?=\s*(?:[^|,]*\|\s*)?https?:)/).map(x=>x.trim()).filter(Boolean).map(x=>{const h=x.search(/https?:\/\//i); let lab='', raw=x; if(h>0){lab=x.slice(0,h).replace(/[\s|:–—-]+$/,'').trim(); raw=x.slice(h);} else {const i=x.lastIndexOf('|'); if(i>0){lab=x.slice(0,i).trim(); raw=x.slice(i+1);}} const u=safeUrl(raw.trim().split(/\s+/)[0]); return u?{label:lab,url:u}:null;}).filter(Boolean);}
+function tDays(t){const a=parseD(t.start), b=parseD(t.end)||a, out=[]; if(!a) return out; for(let d=new Date(a);d<=b&&out.length<7;d.setDate(d.getDate()+1)) out.push(d.toLocaleDateString(undefined,{weekday:'long',month:'short',day:'numeric',year:'numeric'})); return out;}
+function filmTitles(t,arr){const days=tDays(t); return arr.map((x,i)=>x.label||(arr.length===days.length&&arr.length>1?days[i]:arr.length===1?'':'Part '+(i+1)));}
+function filmBlock(t,kind){
+  const arr=linksOf(t[kind]); if(!arr.length) return '';
+  const ttl=filmTitles(t,arr), yt=kind==='playlist';
+  const head=`<div class="fhead">${ic(yt?'play':'photo')}<span>${yt?'Full games':'Short clips'}</span><small>${yt?'YouTube':'Google Photos'}</small></div>`;
+  return head+arr.map((x,i)=>`<a class="frow ${yt?'yt':'gp'}" href="${esc(x.url)}" target="_blank" rel="noopener"><span class="ft"><b>${esc(ttl[i]||(yt?'All games from this tournament':'All clips from this tournament'))}</b>${!ttl[i]&&yt&&+t.played?`<small>${t.played} game${+t.played>1?'s':''}</small>`:''}</span><span class="fgo">${yt?'Watch':'View'} ›</span></a>`).join('');
+}
+function firstLink(v){const l=linksOf(v); return l.length?l[0].url:'';}
+function conf(t){return t.confirmed==='tentative'?'tentative':'confirmed';}
+function cbadge(t){const c=conf(t); return `<span class="cbadge ${c}">${c==='tentative'?'Tentative':'Confirmed'}</span>`;}
+function updStrip(){const u=state.updatedAt?new Date(state.updatedAt):null; if(!u||isNaN(u)) return '';
+  const d=u.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}), tm=u.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});
+  return `<div class="updstrip"><span class="ul">Last updated</span><span class="ud">${esc(d)} · ${esc(tm)}</span></div>`;}
+function tentNote(list){const tt=list.filter(t=>conf(t)==='tentative'); if(!tt.length) return '';
+  return `<div class="tent">${ic('alert')}<span><b>Tentative tournaments:</b> please don’t book travel or hotels yet. Wait for an update from Coach.<small>${tt.map(t=>esc(t.name||'Tournament')+' ('+esc(MON[parseD(t.start).getMonth()]+' '+parseD(t.start).getDate())+')').join(' · ')}</small></span></div>`;}
+function chkItems(t){return String(t.checklist||'').split('\n').map(x=>x.replace(/^\s*(\d+[.)]|[-*•])\s*/,'').trim()).filter(Boolean).map(x=>{const o=/^optional\s*[:\-–]\s*/i.test(x); return {opt:o,text:o?x.replace(/^optional\s*[:\-–]\s*/i,''):x};});}
+function chkKey(t,i,txt){return 'hub-chk:'+t.id+':'+i+':'+txt.length;}
+function outOfState(t){const c=String(t.city||'').trim(); if(!c) return false; const m=c.match(/,\s*([A-Za-z]{2})\.?\s*$/); if(m) return m[1].toUpperCase()!=='CA'; return !/\b(CA|California)\b/i.test(c);}
+function tplKind(t){const o=t.chkTpl||'auto'; if(o!=='auto') return o; if(tripOf(t)!=='travel') return 'none'; return outOfState(t)?'fly':'drive';}
+const CHK_TPL={fly:['Book flight','Book hotel'],drive:['Book hotel'],none:[]};
+function tplItems(t){if(conf(t)==='tentative') return []; return (CHK_TPL[tplKind(t)]||[]).map(x=>({opt:false,text:x,key:'hub-chk:'+t.id+':tpl:'+x}));}
+function checklist(t,compact){const it=[...tplItems(t),...chkItems(t).map((x,i)=>Object.assign({},x,{key:chkKey(t,i,x.text)}))]; if(!it.length||status(t).k==='past') return '';
+  let st={}; it.forEach((x,i)=>{try{st[i]=localStorage.getItem(x.key)==='1';}catch(e){}});
+  const done=it.filter((x,i)=>st[i]).length;
+  return `<div class="chk${compact?' compact':''}"><div class="chkh">${ic('check')}<b>Before you go</b><small>${done} of ${it.length} done</small></div>
+    ${it.map((x,i)=>`<label class="chki${st[i]?' done':''}"><input type="checkbox" data-chk="${esc(x.key)}" ${st[i]?'checked':''}><span>${x.opt?'<em>Optional</em> ':''}${esc(x.text)}</span></label>`).join('')}
+    <div class="chkn">Checkmarks are saved on your phone only.</div></div>`;}
+function rsvpNote(){const la=safeUrl(state.links.leagueapps);
+  return `<div class="rsvp">${ic('check')}<span><b>Player availability (RSVP)</b> is done in LeagueApps, not in this hub.</span>${la?`<a href="${esc(la)}" target="_blank" rel="noopener">Open</a>`:''}</div>`;}
+function upd(){const u=state.updatedAt?new Date(state.updatedAt):null; return u&&!isNaN(u)?u.toLocaleDateString(undefined,{month:'short',day:'numeric'}):'';}
+function recordOf(t){const gs=t.games||[]; const w=gs.filter(g=>/^w/i.test(g.result||'')).length, l=gs.filter(g=>/^l/i.test(g.result||'')).length; return (w+l)?w+'–'+l:'';}
+function gameCount(t){const gs=t.games||[]; return Math.max(gs.filter(g=>g.opponent).length,+t.played||0,gs.filter(hasFilm).length);}
+const HUB_ICON='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAIAAABoJHXvAAA1RElEQVR42u19d5xVxdn/MzOn3rr3bmWXXZYOigoaS4RfFBvmjSWxRX1jMLaoiSnqL0ZfkzeJvrFEY2JExYKAYi+AAvZGkyYqiFKkbC+3t9Om/P6Y3csFjfrmR9jdZOezHz9yzszcc+Z7njrP8wwKBsMw2AZOw4NLMAjYYBsEbLANAjYI2GAbBGywDQI2CNhgGwRssA0CNgjYv9ASYDwI2IBpCKFcLjcI2MCACgBs2548+WiMsRBiQDy28m+LFsY4lUrcccedU6ZMmTJlit8f4JwPUlg/RQshlEolfv/7P1xzzdXr16+n1Bsokkz590QrnU7+6U93XHvtNZzzrq6uAfT8yr8bWgCQTqf++te7f/azqxzH0XW9tbV1ELB+qr5zznO53P333//jH19GKVVVFQC2bt2KsTIgBNi/EWAYY8aYZRVmzXr4wgunU0oJIQihQqHQ0tKqquqglti/0KKUuq7z6KNzzzvvPEqpoigSoVQqlU6nFWXArMO/PmCEENd1GWOPP/74WWed6XmehEcIgRBKJpP5fH4A2WH43wAtByF45pmnzzrrzCInlIABwPbtOwqFPCFk0NPRL9ByHEdRlOeff+7UU0+hlGKMMcbd3d1FwHbt2iUElxAOAtbHaNm2revaggXzTzrpJEqpFGb33nv/H/94CwAwxgCgo6NjgMnjf1W0LMvy+Xwvvvjiscce63kUABRFeeKJJ3/ykyvGjh1b7Nnc3FyktkHA+kwnzGazfr9/4cIFU6ZMdhwHIVAU5eGHZ02ffiHGSn19vcRPCLFt22eEqAMIsP6rJUr/7D8wyvO88ePHLVgwf8SIEQCg6zoA3Hff/VdddVUwGHJdt7a2VlJhJpPp6OgwDANj/HXEmBCiz+1rpd+iZVmW5zkA5H+lEGCMGfPOPvvs5ubmjRs/JgQrivLWW+/cdtsthKiZTGbo0Lphw4bJzqlUKplM5vM5yyJfSWRCMIRIMBjsW3JE/TAZAiHkus6ECRPGjh0Xj8c8j2KMEMJfezhQSh3HxVhCjSilwWAAY9LU1AQg1q9/X1EUhND69euPP/7EI488Ugj+91EQjHGMUTQazWZzb731Vt+6RZR+SV49/Oecc86eNu0kydP2SXvllVdvvvlmVVU9j6qq8sEHH5588rTHH5/3dcauWrXqjjv+zDlDSBsEbI/GudA0fcOGjaefftrIkaOnT//h9Ok/bGhokLq4EKJXtu0hd4QQAIhz9oWrKd1RmzdvrqysBADOGYDy2Wef1dc3eJ4n7+41RLqGLctasGDhjBn3rlixgnMeCoX6Voz1UxkmhDAMw+fztbS0/Pa3v5kxY8YZZ5xx6aWXTpo0sQhA0WcBJehh/MVvJFe/ra1t5MhRACAx7ezsnDx5sqqq8u5eLZFIzJs378EHH96w4SOMSTAYBIBBpePLMGOM6bru8/my2dx99907d+6jxx039corrzj55JMlQTDGigqe9A0uWLBgy5YtkUjUNE05Q3E2QshLLy26+upfAoAUb/F4/J133tE0zXGcokYqhCAEf/LJp0888eTOndtVVS8ri/QH/bD/Kh1fqIYQQiil2WwWY3zkkUdccskl3//+OX6/X8Im95EB4IMPPnj88SfmzXu8vV1uSyIABMB7/1+8+eZbU6ceyzkXQhx55DfXrVsjr3/+Rw3DZ5om57xfbZWhgZUySwgRQuRyOc55fX392Wef9dOf/qSxsVEyK0lGUvC88ML82bNnL126zHXdUCikqiqlVAixatXKMWPGAEAikZw4cVIikdB17fNST5JUPzSoB5ingzHGOY9EIghBbe2Qzs7OqVOPO++881etWo0xlnA6jmOa5vnnn/fqq68sWbLo/PPPE4J3d3dmMtnKyoq6ujo5VTqdyuVyCCFKGf1ck9rNoGtqHzRVVWOxrm9965glSxY/+ujc119/raGhYfr06d/5zimLFi0uujbkih977LGPPjp3xYrlv/719eXl0XC4zOfzSRbX3t6Rz+cG0E5YD4/RdWNgoZVIxKZN+/b8+c+HQiHXdSsrK0888YRFi5YsWbL4+efnv/jii/F4fNy4cVK8SbZWXV19wgnHR6PRTz/99MILL/Q8jxDy5ptvPvfccz6ff6BEcww8CpNonXrqafPnPx8IBCilmqbZtn366d977bXXgsEy2y58/PGmDz/8yHGcoqdKCCH3VuLxuHT7SoRaW9tgADY8sNA688yznn32GcMw5E6/67rf//55CxfO55xXVVX813/duHHjhieemFdXVye1BoSQoiie5z355FN//etfDz/88OKEchtzwLWBEdOhKEoiETv33PMfe2wuIYQxpqqqZVknnTRt2bKlRx31zQsu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';
+function a2hs_claude(){
+  let hide=false; try{hide=localStorage.getItem('hub-a2hs')==='1';}catch(e){}
+  const standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
+  if(hide||standalone||window.innerWidth>760) return '';
+  return `<div class="a2hs a2hs-card"><div class="a2top"><img class="a2icon" src="${HUB_ICON}" alt="Swish Team Hub icon" width="64" height="64"><div class="a2txt"><b>Put the Team Hub on your Home Screen</b><span>One tap to open, with the Swish icon.</span></div></div>
+  <details class="a2how"><summary>Show me how</summary>
+    <p class="a2h">iPhone</p>
+    <ol><li>Press and hold the Swish icon here and tap <b>Save to Photos</b>.</li><li>Open the <b>Shortcuts</b> app, tap <b>+</b>, then <b>Add Action</b> and pick <b>Open URLs</b>.</li><li>Paste the hub link from the team GroupMe.</li><li>Tap the share button, then <b>Add to Home Screen</b>. Tap the small icon, choose <b>Choose Photo</b>, and pick the Swish icon. Name it <b>Swish Hub</b>.</li></ol>
+    <p class="a2h">Quick version (any phone)</p>
+    <ol><li>iPhone: tap Share, then <b>Add to Home Screen</b>. Android: tap the menu (⋮), then <b>Add to Home screen</b>.</li><li>Name it <b>Swish Hub</b>. The icon will be generic, but the link works the same.</li></ol>
+  </details>
+  <button data-act="a2hs">Got it</button></div>`;
+}
+function statusCard(all,past){
+  const nx=all.find(t=>status(t).k==='live')||all.find(t=>status(t).k==='up');
+  const recent=past.find(t=>{const e=parseD(t.end)||parseD(t.start); return e&&(today()-e)/864e5<=14&&(firstLink(t.playlist)||(t.games||[]).some(hasFilm));});
+  let main='';
+  if(nx){ const st=status(nx), v=firstVenue(nx), info=safeUrl(nx.info), h=firstHotel(nx), hu=h&&!pend(nx)&&safeUrl(h.url), bb=bookBy(nx), trip=tripOf(nx);
+    const gw=st.k==='live'||st.days<=7;
+    const kick=st.k==='live'?'Happening now':st.days===0?'Today':st.days===1?'Tomorrow':gw?'This week':'Next up';
+    const when=st.k==='live'?'Live now':st.days===0?'Tip-off today':st.days===1?'Tip-off tomorrow':'In '+st.days+' days';
+    let line;
+    const nvs=allVenues(nx);
+    if(gw) line=nvs.length>1?'At '+nvs.map(x=>`<b>${esc(x.name||x.address)}</b>${x.day?' ('+esc(x.day)+')':''}`).join(' &amp; '):v?`At <b>${esc(v.name||v.address)}</b>`:'Gym to be announced';
+    else if(trip==='travel') line=h?(booked(h)?`Group hotel: <b>${esc(h.name||'hotel')}</b>. Group booking not available`:`Group hotel: <b>${esc(h.name||'room block')}</b>${pend(nx)?'. Booking opens once confirmed':bb&&bb.days!=null&&bb.days>=0?', book by '+esc(bb.text):''}`):(noGH(nx)?'Travel event. No group hotel.<i class="fam">Each family can choose their own.</i>':'Travel event. Group hotel: TBD.');
+    else line=v?`Local event at <b>${esc(v.name||v.address)}</b>`:'Local event';
+    const btn=(href,label,icn,primary,ext)=>`<a class="sbtn${primary?' pri':''}" href="${esc(href)}"${ext?' target="_blank" rel="noopener"':''}>${ic(icn)}${label}</a>`;
+    const btns=gw?[nvs.length>1?btn('#t/'+nx.id,'Gym directions','pin',true,0):v?btn(venueMap(v),'Directions','pin',true,1):'',info?btn(info,'Game Schedule','cal',!v,1):'',nvs.length>1?'':btn('#t/'+nx.id,'Details','arrow',false,0)]
+      :[trip==='travel'&&hu?btn(hu,'Book hotel','bed',true,1):'',btn('#t/'+nx.id,'Details','arrow',!(trip==='travel'&&hu),0)];
+    main=`<div class="skick">${kick}${cbadge(nx)}</div><div class="sname">${esc(nx.name)}</div>
+      <div class="swhen">${esc(when)} · ${esc(fmtRange(nx.start,nx.end))}${nx.city?', '+esc(nx.city):''}</div>
+      <div class="sline">${line}</div><div class="sbtns">${btns.join('')}</div>`;
+  } else main=`<div class="skick">Next up</div><div class="sname">No tournaments booked yet</div><div class="swhen">Check back soon.</div>`;
+  let film='';
+  if(recent){ const pl=firstLink(recent.playlist), n=gameCount(recent), r=recordOf(recent);
+    film=`<div class="sfilm"><div class="skick">Past event</div><div class="pname">${esc(recent.name)}</div><div class="swhen">${esc(fmtRange(recent.start,recent.end))}${recent.city?', '+esc(recent.city):''}</div><div class="prow">${ic('play')}<span>Film is up${n?`: ${n} games${r?', '+r+' record':''}`:''}</span><a href="${esc(pl||'#t/'+recent.id)}"${pl?' target="_blank" rel="noopener"':''}>Watch</a></div></div>`; }
+  return `<section class="status" aria-label="What's next">${main}${film}</section>`;
+}
+function attention(all){
+  const items=[]; const la=safeUrl(state.links.leagueapps);
+  all.filter(t=>['live','up'].includes(status(t).k)).forEach(t=>{const st=status(t), h=firstHotel(t), hu=h&&safeUrl(h.url), bb=bookBy(t), info=safeUrl(t.info), nm=t.name||'Tournament';
+    if(tripOf(t)==='travel'&&h&&st.k==='up'&&!pend(t)){
+      if(bb&&bb.days!=null){ if(bb.days>=0) items.push({u:bb.days<=7?2:1,d:bb.days,t:`Book your hotel for <b>${esc(nm)}</b> by ${esc(bb.text)}`+(bb.days<=14?` <span class="due">${bb.days===0?'today':bb.days+' day'+(bb.days>1?'s':'')+' left'}</span>`:''),href:hu||'#t/'+t.id,ext:!!hu,cta:'Book'}); }
+      else items.push({u:1,d:st.days,t:`Hotel posted for <b>${esc(nm)}</b>. Book your room.`,href:hu||'#t/'+t.id,ext:!!hu,cta:'Book'});
+    }
+    if(st.k==='live'||st.days<=14){
+      if(info) items.push({u:1,d:st.days||0,t:`Game schedule is posted for <b>${esc(nm)}</b>`,href:info,ext:true,cta:'View'});
+      else items.push({u:0,d:st.days||0,t:`Game schedule for <b>${esc(nm)}</b> isn't posted yet`,info:1});
+    }
+    if(la&&st.k==='up'&&st.days<=21) items.push({u:1,d:st.days,t:`RSVP for <b>${esc(nm)}</b> in LeagueApps`,href:la,ext:true,cta:'RSVP'});
+  });
+  items.sort((a,b)=>b.u-a.u||a.d-b.d);
+  const list=items.slice(0,4);
+  return `<section class="attn" aria-label="Needs your attention"><h2>${ic('alert')}Needs your attention</h2>
+    ${list.length?list.map(i=>`<div class="aitem${i.u===2?' urgent':''}${i.info?' info':''}"><span>${i.t}</span>${i.href?`<a href="${esc(i.href)}"${i.ext?' target="_blank" rel="noopener"':''}>${i.cta}</a>`:''}</div>`).join(''):'<div class="aitem info"><span>You’re all caught up. Nothing to do right now.</span></div>'}
+  </section>`;
+}
+function launcher(all,past){
+  const L=state.links; const la=safeUrl(L.leagueapps), gm=safeUrl(L.groupme);
+  const hotels=all.filter(t=>status(t).k==='up'&&tripOf(t)==='travel'&&firstHotel(t)).length;
+  const lastFilm=past.find(t=>firstLink(t.playlist)||(t.games||[]).some(hasFilm));
+  const tile=(href,icn,title,sub,ext)=>href?`<a class="ltile" href="${esc(href)}"${ext?' target="_blank" rel="noopener"':''}>${ic(icn)}<b>${title}</b><small>${sub}</small></a>`:`<span class="ltile off">${ic(icn)}<b>${title}</b><small>Link coming soon</small></span>`;
+  return `<section class="launch" aria-label="Where things live"><h2>Where things live</h2><div class="lgrid">
+    ${tile(la,'check','Game times &amp; RSVPs','Opens LeagueApps',1)}
+    ${tile(gm,'chat','Team chat','Opens GroupMe',1)}
+    ${tile('#cal','cal','Tournament calendar','In this hub',0)}
+    ${tile('#past','play','Game film',lastFilm?'Latest: '+esc(lastFilm.name):'Every tournament',0)}
+    ${tile('#hotels','bed','Hotels',hotels?hotels+' room block'+(hotels>1?'s':'')+' posted':'None posted yet',0)}
+  </div></section>`;
+}
+function snapshot(all,past){
+  const ups=all.filter(t=>['live','up','tbd'].includes(status(t).k));
+  const nc=ups.filter(t=>conf(t)==='confirmed').length, nt=ups.length-nc;
+  const trav=ups.filter(t=>tripOf(t)==='travel'), hp=trav.filter(t=>firstHotel(t)).length;
+  const filmT=past.filter(t=>firstLink(t.playlist)||(t.games||[]).some(hasFilm)).length;
+  const tile=(href,icn,title,big,sub)=>`<a class="ltile" href="${href}">${ic(icn)}<b>${title}</b><span class="big">${big}</span><small>${sub}</small></a>`;
+  return `<section class="launch" aria-label="Snapshot"><h2>At a glance</h2><div class="lgrid snap">
+    ${tile('#cal','cal','Schedule',ups.length+' upcoming',`${nc} confirmed${nt?', '+nt+' tentative':''}`)}
+    ${tile('#hotels','bed','Travel hotels',hp+' of '+trav.length+' posted',trav.length?trav.length+' travel tournament'+(trav.length>1?'s':''):'No travel coming up')}
+    ${tile('#past','play','Game film',filmT+' tournaments',past[0]?'Latest: '+esc(past[0].name):'None yet')}
+  </div></section>`;
+}
+function hotelsBody(){
+  const ups=sorted().filter(t=>status(t).k!=='past'&&tripOf(t)==='travel');
+  if(!ups.length) return '<div class="empty">No travel tournaments coming up.</div>';
+  return `<div class="clist">${ups.map(t=>{const h=firstHotel(t), u=h&&safeUrl(h.url), bb=bookBy(t);
+    const due=bb&&bb.days!=null&&bb.days>=0?`Book by ${esc(bb.text)}${bb.days<=14?' ('+bb.days+' days left)':''}`:'';
+    return `<div class="hrow${!h?' none':''}"><a class="hhead" href="#t/${esc(t.id)}"><b>${esc(t.name)}</b><span>${esc(fmtRange(t.start,t.end))}${t.city?' · '+esc(t.city):''}</span></a>
+      <div class="hbody">${ic('bed')}<div class="hi">${h?`<b>${esc(h.name||'Hotel')}</b>${due?`<span class="${bb.days<=7?'warn':''}">${due}</span>`:''}`:`<span>${noGH(t)?'No group hotel.<i class="fam">Each family can choose their own.</i>':'Group hotel: TBD'}</span>`}</div></div>${h?`<div class="hbtns"><a href="${esc(hotelMap(h))}" target="_blank" rel="noopener">${ic('pin')}Group hotel directions</a>${booked(h)?`<span class="done">${ic('check')}Group hotel booking not available</span>`:pend(t)?`<span class="off">${ic('check')}Booking opens once confirmed</span>`:u?`<a class="pri" href="${esc(u)}" target="_blank" rel="noopener">${ic('check')}Group hotel booking</a>`:`<span class="off">${ic('check')}No group hotel booking</span>`}</div>`:''}</div>`;}).join('')}</div>`;
+}
+function hotelsView(){
+  const ups=sorted().filter(t=>status(t).k!=='past'&&tripOf(t)==='travel');
+  return `<button class="back" data-act="home">‹ Team Hub</button>
+  <div class="dhead"><h1 class="display">Hotels</h1><div class="meta">Room blocks for every travel tournament.</div></div>
+  ${ups.length?ups.map(t=>{const hs=(noGH(t)||ghTBD(t))?[]:(t.hotels||[]).filter(h=>h.name||h.url); const bb=bookBy(t);
+    return `<section class="block"><h3><a href="#t/${esc(t.id)}" style="color:inherit;text-decoration:none">${esc(t.name)}</a></h3>
+      <div class="item s">${esc(fmtRange(t.start,t.end))}${t.city?', '+esc(t.city):''}</div>
+      ${hs.length?hs.map(h=>{const u=pend(t)?'':safeUrl(h.url);return `<div class="item game"><div><div class="t">${esc(h.name||'Hotel')}</div>${h.address?`<div class="s">${esc(h.address)}</div>`:''}${h.deadline?`<div class="s">Book by ${esc(h.deadline)}${bb&&bb.days!=null&&bb.days>=0&&bb.days<=14?' ('+bb.days+' days left)':''}</div>`:''}${h.code?`<div class="s">Block / code: ${esc(h.code)}</div>`:''}</div>${u?`<a class="btn primary" href="${esc(u)}" target="_blank" rel="noopener">Book</a>`:''}</div>`;}).join(''):`<div class="item s">${noGH(t)?'No group hotel.<i class="fam">Each family can choose their own.</i>':'Group hotel: TBD. Watch the GroupMe thread.'}</div>`}
+    </section>`;}).join(''):'<div class="empty">No travel tournaments coming up.</div>'}
+  ${footer()}`;
+}
+function curView(){const h=location.hash; if(h==='#past')return 'film'; if(h==='#hotels')return 'hotels'; if(h==='#cal')return 'calendar'; return 'home';}
+function navBar(v){const it=[['home','#home','home','Home'],['calendar','#cal','cal','Calendar'],['film','#past','play','Film']];
+  return `<nav class="bnav" aria-label="Main">${it.map(([k,h,i,l])=>`<a href="${h}"${v===k?' aria-current="page"':''}>${ic(i)}<span>${l}</span></a>`).join('')}</nav>`;}
+function crow(t){
+  const st=status(t), a=parseD(t.start), b=parseD(t.end)||a, trip=tripOf(t);
+  const mon=a?MON[a.getMonth()]+(b.getMonth()!==a.getMonth()?'–'+MON[b.getMonth()]:''):'TBD';
+  const days=a?(+a===+b?String(a.getDate()):a.getDate()+'–'+b.getDate()):'';
+  let extra='';
+  if(st.k==='past'){ const n=gameCount(t), r=recordOf(t), f=firstLink(t.playlist)||(t.games||[]).some(hasFilm);
+    extra=(n||f)?`<span class="cx film">${f?ic('play'):''}${n?n+' game'+(n>1?'s':''):'Film'}${r?', '+r:''}</span>`:'';
+    if(firstLink(t.clips)) extra+=`<span class="cx clip">${ic('photo')}Short clips</span>`; }
+  else if(trip==='travel'){ const h=firstHotel(t); extra=`<span class="cx ${h?'ok':'no'}">${ic('bed')}${h?esc(h.name||'Hotel posted')+(booked(h)?' · Group booking not available':''):(noGH(t)?'No group hotel.<i class="fam">Each family can choose their own.</i>':'Group hotel: TBD')}</span>`; }
+  const row=`<a class="crow${st.k==='live'?' live':''}" href="#t/${esc(t.id)}"><span class="cdate"><b${mon.includes('–')?' class="long"':''}>${mon}</b><i>${days}</i><small>${a?a.getFullYear():''}</small></span>
+    <span class="cbody"><span class="cname">${esc(t.name||'Tournament')}</span><span class="cmeta">${esc(t.city||'Location TBD')} · ${trip==='travel'?'Travel':'Local'}${st.k!=='past'?' '+cbadge(t):''}</span>${extra}</span><span class="chev" aria-hidden="true">›</span></a>`;
+  if(st.k==='past') return `<div class="cwrap">${row}</div>`;
+  const v=firstVenue(t), info=safeUrl(t.info);
+  return `<div class="cwrap">${row}<div class="cq">${allVenues(t).length>1?`<a href="#t/${esc(t.id)}">${ic('pin')}${allVenues(t).length} gyms</a>`:v?`<a href="${esc(venueMap(v))}" target="_blank" rel="noopener">${ic('pin')}Gym directions</a>`:`<span class="off">${ic('pin')}Gym TBD</span>`}${info?`<a href="${esc(info)}" target="_blank" rel="noopener">${ic('cal')}Schedule</a>`:`<span class="off">${ic('cal')}Schedule TBD</span>`}</div></div>`;
+}
+function gameHA(g){const x=String(g.ha||'').trim(); return /^h/i.test(x)?'home':/^a/i.test(x)?'away':'';}
+function gameRows(t){const gs=(t.games||[]).filter(g=>g.time||g.court||g.ha||g.day); if(!gs.length) return '';
+  return gs.map(g=>{const ha=gameHA(g); const where=[g.court?('Court '+String(g.court).replace(/^court\s*/i,'')):'',g.gym||''].filter(Boolean).map(esc).join(' · ');
+    return `<div class="og"><div class="ogw"><b>${esc(g.day||'')}</b><span>${esc(g.time||'TBD')}</span></div><div class="ogm"><b>vs ${esc(g.opponent||'TBD')}</b><small>${where||'Court TBD'}</small></div>${ha?`<span class="jy ${ha}"><b>${ha==='home'?'Home':'Away'}</b><i>${ha==='home'?'Wear white':'Wear black'}</i></span>`:'<span class="jy tbd"><b>TBD</b><i>Jersey</i></span>'}</div>`;}).join('');}
+function schedBlock(t){if(status(t).k==='past') return ''; const r=gameRows(t); if(!r) return '';
+  return `<div class="ogames"><div class="ogh"><span>${ic('cal')}Our games</span>${t.schedChecked?`<small>Updated ${esc(t.schedChecked)}</small>`:''}</div>${r}<p class="ogn">Home = white jerseys · Away = black jerseys. Times can change until the night before each game day.</p></div>`;}
+function tplLine(t){if(tripOf(t)!=='travel'||status(t).k==='past') return ''; const r=roster(); if(!r.length) return ''; const pl=t.plans||{};
+  const sh=r.filter(n=>pl[n]&&(pl[n].arr||pl[n].dep||pl[n].how||pl[n].note));
+  return `<a class="eline tpl" href="#t/${esc(t.id)}"><span class="eic">${ic('arrow')}</span><span class="etx"><small>Travel plans</small><b>${sh.length?sh.length+' of '+r.length+' families shared':'No times shared yet'}</b></span><span class="edir">View</span></a>`;}
+function ecard(t,isNext){
+  const st=status(t), a=parseD(t.start), b=parseD(t.end)||a, trip=tripOf(t);
+  const mon=a?MON[a.getMonth()]+(b.getMonth()!==a.getMonth()?'–'+MON[b.getMonth()]:''):'TBD';
+  const days=a?(+a===+b?String(a.getDate()):a.getDate()+'–'+b.getDate()):'';
+  const v=firstVenue(t), info=safeUrl(t.info), h=firstHotel(t), hu=h&&safeUrl(h.url);
+  const line=(cls,icn,label,name,href,btn,bic)=>`<div class="eline ${cls}"><span class="eic">${ic(icn)}</span><span class="etx"><small>${label}</small><b>${name}</b></span>${href?`<a class="edir" href="${esc(href)}" target="_blank" rel="noopener">${ic(bic||'pin')}${btn}</a>`:''}</div>`;
+  const vs=allVenues(t);
+  const gym=vs.length?vs.map(x=>line('gym','ball',x.day?'Gym · '+esc(x.day):'Gym',esc(x.name||x.address),venueMap(x),'Directions')).join(''):line('gym','ball','Gym','To be announced','','Directions');
+  const hotel=trip==='travel'?line('hotel','bed','Group hotel',h?esc(h.name||'Hotel'):(noGH(t)?'No group hotel.<i class="fam">Each family can choose their own.</i>':'TBD'),h&&hotelMap(h),'Directions'):'';
+  const sched=line('sched','cal','Game schedule',info?esc(srcName(info)):'Not posted yet',info,'View','cal');
+  const acts=[];
+  if(trip==='travel'&&!noGH(t)) acts.push(booked(h)?`<span class="ea off">${ic('check')}Group hotel booking not available</span>`:!h?`<span class="ea off">${ic('check')}Group hotel TBD</span>`:pend(t)?`<span class="ea off">${ic('check')}Booking opens once confirmed</span>`:hu?`<a class="ea pri" href="${esc(hu)}" target="_blank" rel="noopener">${ic('check')}Group hotel booking</a>`:`<span class="ea off">${ic('check')}${h?'No group hotel booking':'Group hotel TBD'}</span>`);
+  const kick=isNext?(st.k==='live'?'Happening now':st.days===0?'Today':st.days===1?'Tomorrow':st.days<=7?'This week · in '+st.days+' days':'Next up · in '+st.days+' days'):'';
+  return `<div class="ecard${st.k==='live'?' live':''}${isNext?' isnext':''}">${kick?`<div class="ekick">${kick}</div>`:''}
+    <a class="ehead" href="#t/${esc(t.id)}"><span class="cdate"><b${mon.includes('–')?' class="long"':''}>${mon}</b><i>${days}</i><small>${a?a.getFullYear():''}</small></span>
+      <span class="cbody"><span class="cname">${esc(t.name||'Tournament')}</span><span class="cmeta">${esc(t.city||'Location TBD')} · ${trip==='travel'?'Travel':'Local'} ${cbadge(t)}</span></span><span class="chev" aria-hidden="true">›</span></a>
+    ${gym}${sched}${schedBlock(t)}${hotel}${tplLine(t)}${checklist(t,true)}${acts.length?`<div class="eacts">${acts.join('')}</div>`:''}</div>`;
+}
+function latestFilm(past){
+  const t=past.find(x=>firstLink(x.playlist)||(x.games||[]).some(hasFilm)); if(!t) return '';
+  const pl=firstLink(t.playlist), n=gameCount(t), r=recordOf(t);
+  return `<section class="filmcard"><div class="skick">Latest game film</div><div class="pname">${esc(t.name)}</div>
+    <div class="swhen">${esc(fmtRange(t.start,t.end))}${n?` · ${n} games${r?', '+r:''}`:''}</div>
+    <div class="sbtns"><a class="sbtn pri" href="${esc(pl||'#t/'+t.id)}"${pl?' target="_blank" rel="noopener"':''}>${ic('play')}Watch</a><a class="sbtn" href="#past">All film</a></div></section>`;
+}
+function homeView(){
+  const v=curView();
+  const all=sorted();
+  const live=all.filter(t=>status(t).k==='live');
+  const up=all.filter(t=>['up','tbd'].includes(status(t).k));
+  const past=all.filter(t=>status(t).k==='past').reverse();
+  const upcomingAll=[...live,...up];
+  const nxt=live[0]||up.find(t=>status(t).k==='up');
+  const header=`<header class="brandbar">
+      <span class="badge"><img src="${LOGO}" alt="${esc(state.team.name)}"></span>
+      <div><div class="org">Sports Academy Swish NorCal</div><div class="lbl">${esc(state.team.label||'Jr EYBL 14U')}</div><div class="season">${esc(state.team.season||'')}</div></div>
+    </header>`;
+  let body='';
+  if(v==='home'){
+    body=`<div class="intro"><h1>Team Hub</h1><p>Tournament calendar, hotel booking links, game schedules, event details and past game film, all in one place.</p></div>
+      ${rsvpNote()}
+      ${tentNote(upcomingAll)}
+      <h2 class="sh">Upcoming tournaments<span class="shn">${upcomingAll.length}</span></h2>
+      ${upcomingAll.length?`<div class="clist">${upcomingAll.map(x=>ecard(x,x===nxt)).join('')}</div>`:'<div class="empty">Nothing booked yet.</div>'}
+      ${latestFilm(past)}
+      ${adminBtns()}
+      ${a2hs()}`;
+  } else if(v==='calendar'){
+    body=`<h1 class="vh">Calendar</h1><p class="vsub">Tournament weekends by month. Tap one for details.</p>${calView()}${adminBtns()}`;
+  } else if(v==='list'){
+    body=`<h1 class="vh">Events</h1><p class="vsub">Every upcoming tournament with gym, hotel and schedule links.</p>
+      ${upcomingAll.length?`<div class="clist">${upcomingAll.map(ecard).join('')}</div>`:'<div class="empty">Nothing booked yet.</div>'}${adminBtns()}`;
+  } else if(v==='hotels'){
+    body=`<h1 class="vh">Hotels</h1><p class="vsub">Group booking links for every travel tournament.</p>${hotelsBody()}`;
+  } else {
+    let out='', yr=null;
+    past.forEach(t=>{const y=(t.start||'').slice(0,4)||'Undated'; if(y!==yr){ if(yr!==null) out+='</div>'; out+=`<h3 class="yr">${esc(y)}</h3><div class="clist">`; yr=y;} out+=crow(t);});
+    const pa=firstLink(state.links.photos);
+    body=`<h1 class="vh">Game film</h1><p class="vsub">Full games on YouTube and StatsNerd, plus short clips in Google Photos. Tap a tournament for opponents, scores and videos.</p>
+    ${linksOf(state.links.photos).map((x,i,arr)=>`<a class="clipsall" href="${esc(x.url)}" target="_blank" rel="noopener">${ic('photo')}<span><b>${esc(x.label||('Highlight clips'+(arr.length>1?' '+(i+1):'')))}</b><small>Short clips in Google Photos</small></span><i>›</i></a>`).join('')}${past.length?out+'</div>':'<div class="empty">No past tournaments yet.</div>'}`;
+  }
+  return header+updStrip()+body+footer();
+  function adminBtns(){return canEdit&&!readOnly?`<div class="actions"><button class="btn primary" data-act="new">Add tournament</button><button class="btn" data-act="settings">Team and links</button></div>`:'';}
+  function calView(){
+    const all=sorted().filter(t=>parseD(t.start));
+    const tdy=today();
+    const mk=d=>d.getFullYear()*12+d.getMonth();
+    const sK=t=>mk(parseD(t.start)), eK=t=>mk(parseD(t.end)||parseD(t.start));
+    const upEv=all.filter(t=>status(t).k!=='past');
+    const curKey=mk(tdy);
+    const baseKey=upEv.length?Math.min(curKey,...upEv.map(sK)):curKey;
+    const seasonY=parseInt(String((state.team&&state.team.season)||''),10)||tdy.getFullYear();
+    const earlier=all.filter(t=>status(t).k==='past'&&eK(t)<baseKey&&eK(t)>=seasonY*12+7);
+    const startKey=calEarly&&earlier.length?Math.min(...earlier.map(sK)):baseKey;
+    const ev=all.filter(t=>eK(t)>=startKey);
+    if(!ev.length) return '<div class="empty">No upcoming tournaments yet.</div>';
+    const MONL=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const endKey=Math.max(startKey,...ev.map(eK));
+    let y=Math.floor(startKey/12), mo=startKey%12; let tiles='';
+    while(y*12+mo<=endKey){
+      const inMonth=ev.filter(t=>sK(t)<=y*12+mo && eK(t)>=y*12+mo);
+      const dim=new Date(y,mo+1,0).getDate(), off=new Date(y,mo,1).getDay();
+      let cells='';
+      ['S','M','T','W','T','F','S'].forEach(w=>cells+=`<span class="wd">${w}</span>`);
+      for(let i=0;i<off;i++) cells+='<span></span>';
+      for(let d=1;d<=dim;d++){
+        const dt=new Date(y,mo,d);
+        const hits=inMonth.filter(t=>{const a=parseD(t.start), b=parseD(t.end)||a; return dt>=a&&dt<=b;});
+        const hit=hits.find(t=>status(t).k!=='past')||hits[0];
+        const isT=+dt===+tdy?' today':'';
+        if(hit){ const a=parseD(hit.start), b=parseD(hit.end)||a; const pos=(+dt===+a||dt.getDay()===0?' s':'')+(+dt===+b||dt.getDay()===6?' e':'');
+          const pst=status(hit).k==='past'?' past':'';
+          cells+=`<a class="dy ev ${tripOf(hit)} ${conf(hit)}${pst}${pos}${isT}" href="#t/${esc(hit.id)}" aria-label="${esc(hit.name)}${pst?' (past)':''}">${d}</a>`; }
+        else cells+=`<span class="dy${isT}">${d}</span>`;
+      }
+      const list=inMonth.filter(t=>sK(t)===y*12+mo).map(t=>{const a=parseD(t.start), b=parseD(t.end)||a; const tr=tripOf(t), pst=status(t).k==='past';
+        const dr=MON[a.getMonth()]+' '+a.getDate()+(+a===+b?'':'–'+(a.getMonth()===b.getMonth()?'':MON[b.getMonth()]+' ')+b.getDate());
+        return `<a class="mev ${tr}${pst?' past':''}" href="#t/${esc(t.id)}"><span class="md">${dr}<small>${DOW[a.getDay()]}${+a===+b?'':'–'+DOW[b.getDay()]}</small></span><span class="mn"><b>${esc(t.name||'Tournament')}</b><small>${esc(t.city||'Location TBD')}</small>${pst?'':cbadge(t)}</span><span class="mt">${pst?'Past':tr==='travel'?'Travel':'Local'}</span></a>`;}).join('');
+      tiles+=`<section class="mtile${inMonth.length?'':' quiet'}"><h3>${MONL[mo]} <span>${y}</span></h3>
+        ${inMonth.length?`<div class="cal">${cells}</div>${list?`<div class="mlist">${list}</div>`:''}`:'<p class="s">No tournaments this month.</p>'}</section>`;
+      mo++; if(mo>11){mo=0;y++;}
+    }
+    const more=earlier.length?`<button type="button" class="calmore" data-act="calEarly">${calEarly?'Hide earlier months':'Show earlier this season ('+earlier.length+')'}</button>`:'';
+    return `
+      <div class="legend"><span><i class="lt"></i>Travel</span><span><i class="ll"></i>Local</span><span><i class="ltt"></i>Tentative</span><span><i class="lp"></i>Past</span></div>
+      ${more}<div class="months">${tiles}</div>`;
+  }
+}
+function footer(){
+  const up=state.updatedAt?new Date(state.updatedAt):null;
+  const upTxt=up&&!isNaN(up)?'Updated '+up.toLocaleDateString(undefined,{month:'short',day:'numeric'})+'. ':'';
+  return `<div class="foot"><span>${upTxt}Game times and RSVPs live in LeagueApps.</span>${canEdit&&!readOnly?'':(artifactNs&&!readOnly?'<button data-act="organizer">Admins: turn on editing</button>':'')}</div>`;
+}
+
+function detailView(t){
+  const st=status(t), trip=tripOf(t);
+  const venues=(t.venues||[]).filter(v=>v.name||v.address);
+  const hotels=(noGH(t)||ghTBD(t))?[]:(t.hotels||[]).filter(h=>h.name||h.url);
+  const games=(t.games||[]).filter(g=>g.opponent||g.url||g.label);
+  const gm=safeUrl(t.groupme), pl=firstLink(t.playlist), info=safeUrl(t.info), la=safeUrl(state.links.leagueapps);
+  const films=games.filter(hasFilm).length; const sn=safeUrl(t.statsnerd);
+
+  const site=safeUrl(t.site);
+  const gameday=`<section class="block gameday"><h3>${venues.length>1?'Gyms':'Gym Location'}</h3>
+    ${venues.length?venues.map((v,i)=>`<div class="item venue"><div>${dayTag(v)}<div class="t">${esc(v.name||'Gym')}</div>${v.address?`<div class="s">${esc(v.address)}</div>`:''}</div><a class="btn ${i===0?'primary':''}" href="${esc(venueMap(v))}" target="_blank" rel="noopener">${ic('pin')}Directions</a></div>`).join('')
+      :`<div class="item"><div class="t">Gym to be announced</div><div class="s">${t.city?esc(t.city)+'. ':''}We’ll post the gym once it’s released.</div></div>`}
+  </section>
+  <section class="block sched"><h3>Schedule</h3>
+    ${schedBlock(t)}
+    ${info?`<div class="item venue"><div><div class="t">Game schedule &amp; brackets</div><div class="s">Opens ${esc(srcName(info))}. Game times can shift during the event, so check back.</div></div><a class="btn primary" href="${esc(info)}" target="_blank" rel="noopener">${ic('cal')}View</a></div>`
+      :`<div class="item"><div class="t">Not posted yet</div><div class="s">Brackets and game times usually go up a few days before tip-off. We’ll add the link here as soon as it’s out.</div>${canEdit&&!readOnly?`<a class="btn" style="margin-top:10px" href="${esc('https://www.google.com/search?q='+encodeURIComponent((t.name||'')+' '+(t.city||'')+' '+fmtRange(t.start,t.end)+' basketball schedule exposure events'))}" target="_blank" rel="noopener">${ic('cal')}Admin: search for schedule</a>`:''}</div>`}
+    ${site?`<div class="item venue"><div><div class="t">Event info</div><div class="s">${esc(srcName(site))}: rules, admission and venue details</div></div><a class="btn" href="${esc(site)}" target="_blank" rel="noopener">${ic('globe')}Open</a></div>`:''}
+
+  </section>`;
+
+  const notes=t.notes?`<section class="block"><h3>Notes for parents</h3><div class="item notes">${esc(t.notes)}</div></section>`:'';
+
+  const h0=hotels[0];
+  const hotelSum=h0?esc((h0.name||'Hotel')+(hotels.length>1?' +'+(hotels.length-1)+' more':'')+(h0.deadline?', book by '+h0.deadline:'')):(trip==='travel'?(noGH(t)?'None.<i class="fam">Each family can choose their own</i>':'TBD'):'');
+  const hotel=(hotels.length||trip==='travel')?`<details class="acc"><summary><span class="st">Group hotel</span><span class="ss">${hotelSum}</span></summary>
+    ${hotels.length?hotels.map(h=>{const u=safeUrl(h.url);return `<div class="item"><div class="t">${esc(h.name||'Hotel')}</div>${h.address?`<div class="s">${esc(h.address)}</div>`:''}
+    ${(h.code||h.deadline||h.rate)?`<dl class="kv">${h.code?`<dt>Block / code</dt><dd>${esc(h.code)}</dd>`:''}${h.rate?`<dt>Rate</dt><dd>${esc(h.rate)}</dd>`:''}${h.deadline?`<dt>Book by</dt><dd>${esc(h.deadline)}</dd>`:''}</dl>`:''}
+    ${h.notes?`<div class="s notes" style="margin-top:6px">${esc(h.notes)}</div>`:''}
+    <div class="links"><a class="btn" href="${esc(hotelMap(h))}" target="_blank" rel="noopener">${ic('pin')}Group hotel directions</a>${booked(h)?`<span class="btn done">${ic('check')}Group hotel booking not available</span>`:pend(t)?`<span class="btn done">${ic('check')}Booking opens once confirmed</span>`:u?`<a class="btn primary" href="${esc(u)}" target="_blank" rel="noopener">${ic('check')}Group hotel booking</a>`:''}</div></div>`;}).join('')
+    :`<div class="item s">${noGH(t)?'No group hotel for this tournament.<i class="fam">Each family can choose their own.</i>':'Group hotel: TBD. We’re still looking into it. Watch the GroupMe thread for updates.'}</div>`}</details>`:'';
+
+  const filmSum=films?films+' game'+(films>1?'s':''):+t.played&&(pl||sn)?t.played+' game'+(+t.played>1?'s':'')+(pl&&sn?', YouTube and StatsNerd':pl?' on YouTube':' on StatsNerd'):(pl&&sn)?'YouTube and StatsNerd':pl?'YouTube':sn?'StatsNerd':(st.k==='past'?'Not posted yet':'After the tournament');
+  const film=`<details class="acc" ${st.k==='past'?'open':''}><summary><span class="st">Game film</span><span class="ss">${filmSum}${firstLink(t.clips)?' + clips':''}</span></summary>
+    ${filmBlock(t,'playlist')}
+    ${sn?`<div class="item game"><div><div class="t">StatsNerd</div><div class="s">Film and stats in the StatsNerd app</div></div><a class="btn primary" href="${esc(sn)}" target="_blank" rel="noopener">Open</a></div>`:''}
+    ${games.map(g=>{const u=safeUrl(g.url);return `<div class="item game"><div><div class="t">${esc(g.opponent?'vs '+g.opponent:(g.label||'Game'))}</div><div class="s">${esc([g.opponent?g.label:'',g.result].filter(Boolean).join(', '))}</div></div>${(u||safeUrl(g.sn))?`<div class="srcs">${u?`<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">YouTube</a>`:''}${safeUrl(g.sn)?`<a class="btn" href="${esc(safeUrl(g.sn))}" target="_blank" rel="noopener">StatsNerd</a>`:''}</div>`:(g.note?`<span class="s">${esc(g.note)}</span>`:pl?'<span class="s">In playlist</span>':'<span class="s">Film coming</span>')}</div>`;}).join('')}
+    ${filmBlock(t,'clips')}
+    ${(!pl&&!sn&&!games.length&&!firstLink(t.clips))?`<div class="item s">${st.k==='past'?'Film will be added soon.':'Film is posted after the tournament wraps.'}</div>`:''}</details>`;
+
+  const deeper=st.k==='past'?film+hotel:hotel+film;
+  return `<button class="back" data-act="home">‹ Back</button>
+  <div class="dhead">
+    ${st.k!=='past'?cbadge(t)+' ':''}<span class="trip ${trip}" style="margin-right:10px">${trip==='travel'?'Travel':'Local'}</span>${st.k==='live'?'<span class="tag live">Happening now</span>':st.k==='up'?`<span class="tag soon">${st.days===0?'Today':st.days+' days away'}</span>`:''}
+    <h1 class="display">${esc(t.name||'Untitled tournament')}</h1>
+    <div class="meta">${esc(fmtRange(t.start,t.end))}${t.city?', '+esc(t.city):''}${t.division?'<br>'+esc(t.division):''}</div>
+  </div>
+  ${st.k!=='past'?quickGrid(t)+rsvpNote()+checklist(t,false):''}
+  ${st.k==='past'?deeper+gameday:gameday+notes+deeper}
+  ${st.k==='past'?notes:''}
+  ${gm?`<details class="acc"><summary><span class="st">GroupMe thread</span><span class="ss">Logistics chat</span></summary><div class="item"><a class="btn primary" href="${esc(gm)}" target="_blank" rel="noopener">Open GroupMe</a></div></details>`:''}
+  ${travelPlans(t)}
+  <div class="actions" style="margin-top:16px"><button class="btn ghost" data-act="copy" data-id="${esc(t.id)}">Copy details for GroupMe</button></div>
+  ${canEdit&&!readOnly?`<div class="actions"><button class="btn primary" data-act="edit" data-id="${esc(t.id)}">Edit tournament</button><button class="btn danger" data-act="del" data-id="${esc(t.id)}">Delete</button></div>`:''}
+  ${footer()}`;
+}
+function hotelMap(h){return h?(safeUrl(h.map)||((h.name||h.address)?maps(((h.name||'')+' '+(h.address||'')).trim()):'')):'';}
+function roster(){return (state.roster||[]).slice().sort((x,y)=>x.localeCompare(y));}
+function travelPlans(t){
+  if(tripOf(t)!=='travel'||status(t).k==='past') return '';
+  const pl=t.plans||{}, r=roster(); if(!r.length) return '';
+  const filled=r.filter(n=>pl[n]&&(pl[n].arr||pl[n].dep||pl[n].how||pl[n].note)).length;
+  const how=x=>x==='fly'?'Flying':x==='drive'?'Driving':'';
+  const sh=safeUrl(state.links.travelSheet);
+  return `<section class="block tplans"><h3 id="travel">Travel plans <span class="opt">${filled} of ${r.length} shared</span></h3>
+    <div class="item s">Add when you arrive in ${esc((t.city||'town').split(',')[0])} and when you head home, so families can coordinate rides, meals and room shares.</div>
+    ${sh?`<div class="item tpl"><a class="btn primary" href="${esc(sh.replace(/#.*$/,'')+(t.travelGid?'#gid='+t.travelGid:''))}" target="_blank" rel="noopener">${ic('arrow')}See &amp; add travel times</a><div class="s">${t.travelGid?'Opens this tournament’s tab in the team’s Google Sheet. Fill in your player’s row. No sign-in needed.':`Opens the team’s Google Sheet. Tap the <b>${esc(t.travelTab||'tournament')}</b> tab at the bottom and fill in your player’s row. No sign-in needed.`}</div></div>`:''}
+    ${state.links.travelSynced?`<div class="item s psync">${state.links.travelLive?'Live from the team sheet as of '+esc(state.links.travelLive)+'.':'Snapshot from the team sheet, last synced '+esc(state.links.travelSynced)+'. Tap <b>See &amp; add travel times</b> for the live version.'}</div>`:''}
+    ${`<div class="ptable" role="table" aria-label="Travel plans by player">
+      <div class="prow ph" role="row"><span role="columnheader">Player</span><span role="columnheader">Arrives</span><span role="columnheader">Departs</span></div>
+      ${r.map(n=>{const x=pl[n]||{}; const has=x.arr||x.dep||x.how||x.note;
+        return `<div class="prow${has?'':' pempty'}" role="row"><span class="pn" role="cell">${esc(n)}${how(x.how)?`<small>${how(x.how)}</small>`:''}</span><span role="cell">${x.arr?esc(x.arr):'—'}</span><span role="cell">${x.dep?esc(x.dep):'—'}</span>${x.note?`<span class="pnote" role="cell">${esc(x.note)}</span>`:''}</div>`;}).join('')}
+    </div>`}
+  </section>`;
+}
+function quickGrid(t){
+  const v=firstVenue(t), info=safeUrl(t.info), h=firstHotel(t), hu=h&&!pend(t)&&safeUrl(h.url), site=safeUrl(t.site), trip=tripOf(t);
+  const q=(href,icn,label,sub,pri)=>href?`<a class="qbtn${pri?' pri':''}" href="${esc(href)}" target="_blank" rel="noopener">${ic(icn)}<b>${label}</b><small>${sub}</small></a>`:`<span class="qbtn off" aria-disabled="true">${ic(icn)}<b>${label}</b><small>${sub}</small></span>`;
+  const items=[q(v&&venueMap(v),'pin','Gym directions',v?(v.day?esc(v.day)+': ':'')+esc(v.name||'Gym'):'Gym TBD',1), q(info,'cal','Game Schedule',info?esc(srcName(info)):'Not posted yet',0)];
+  if(trip==='travel'&&noGH(t)){ items.push(`<span class="qbtn off">${ic('bed')}<b>No group hotel</b><small class="wrapok"><i class="fam">Each family can choose their own</i></small></span>`); }
+  else if(trip==='travel'){ items.push(q(h&&hotelMap(h),'bed','Group hotel directions',h?esc(h.name||'Hotel'):'TBD',0)); items.push(booked(h)?`<span class="qbtn done">${ic('check')}<b>Group hotel booking</b><small>Not available</small></span>`:pend(t)&&h?`<span class="qbtn off">${ic('check')}<b>Group hotel booking</b><small>Opens once confirmed</small></span>`:q(hu,'check','Group hotel booking',hu?'Book the team rate':(h?'Not applicable':'TBD'),0)); }
+  items.push(q(site,'globe','Event info',site?esc(srcName(site)):'Not posted yet',0));
+  return `<nav class="qgrid" aria-label="Quick links">${items.join('')}</nav>`;
+}
+function dockFor(t){
+  if(status(t).k==='past') return '';
+  const v=firstVenue(t), info=safeUrl(t.info), h=firstHotel(t), hu=h&&!pend(t)&&safeUrl(h.url), site=safeUrl(t.site);
+  const b=[v?`<a class="btn primary" href="${esc(venueMap(v))}" target="_blank" rel="noopener">Directions</a>`:'',
+    info?`<a class="btn" href="${esc(info)}" target="_blank" rel="noopener">Game Schedule</a>`:'<span class="btn off" aria-disabled="true">Game Schedule</span>',
+    hu?`<a class="btn" href="${esc(hu)}" target="_blank" rel="noopener">Hotel</a>`:'',
+    site?`<a class="btn" href="${esc(site)}" target="_blank" rel="noopener">Event site</a>`:''].filter(Boolean);
+  return b.length?`<nav class="dock" aria-label="Quick actions">${b.join('')}</nav>`:'';
+}
+
+/* ---------- Editor ---------- */
+const GROUPS={
+  venues:{title:'Gyms',add:'Add gym',fields:[['name','Gym name'],['address','Address'],['day','Day (optional, e.g. Sat or Sun Nov 1)']]},
+  hotels:{title:'Hotels',add:'Add hotel',fields:[['name','Hotel name'],['address','Address'],['map','Google Maps link (optional, for hotel info)'],['url','Group booking link (if applicable)'],['status','Group booking status','status'],['code','Room block or group code'],['rate','Rate'],['deadline','Book by'],['notes','Notes','area']]},
+  games:{title:'Games (schedule & film)',add:'Add game',fields:[['opponent','Opponent'],['day','Day (e.g. Sat 10/31)'],['time','Time (e.g. 9:00 AM)'],['court','Court'],['gym','Gym (if more than one)'],['ha','Home or Away'],['label','When (e.g. Sat 9:00am, Court 3)'],['result','Result (e.g. W 42–35)'],['url','YouTube link'],['sn','StatsNerd link'],['note','Film note (e.g. Video in StatsNerd)']]}
+};
+function grpRow(g,v){v=v||{};return `<div class="grp-row" data-row="${g}">${GROUPS[g].fields.map(([k,l,type])=>`<div class="field"><label>${esc(l)}</label>${type==='area'?`<textarea data-k="${k}">${esc(v[k]||'')}</textarea>`:type==='status'?`<select data-k="${k}"><option value="available" ${!booked(v)?'selected':''}>Available</option><option value="unavailable" ${booked(v)?'selected':''}>Not available</option></select>`:`<input data-k="${k}" value="${esc(v[k]||'')}" ${k==='url'?'inputmode="url" autocapitalize="off"':''}>`}</div>`).join('')}<button type="button" class="btn danger" data-act="rmrow">Remove</button></div>`;}
+function grpBlock(g,arr){return `<fieldset data-grp="${g}"><legend>${GROUPS[g].title}</legend>${g==='games'?`<div class="field"><label for="bulk">Paste several game links at once</label><textarea id="bulk" placeholder="vs Lakers https://youtu.be/...\nvs Warriors https://youtu.be/..."></textarea></div><button type="button" class="btn" data-act="bulk" style="margin-bottom:12px">Add pasted links</button>`:''}<div class="rows">${(arr&&arr.length?arr:[]).map(v=>grpRow(g,v)).join('')}</div><button type="button" class="btn" data-act="addrow" data-g="${g}">${GROUPS[g].add}</button></fieldset>`;}
+function fld(k,l,v,extra){return `<div class="field"><label for="f_${k}">${esc(l)}</label><input id="f_${k}" data-f="${k}" value="${esc(v||'')}" ${extra||''}></div>`;}
+
+function tournamentForm(t){
+  t=t||{};
+  return `<h2>${t.id?'Edit tournament':'New tournament'}</h2>
+  ${fld('name','Tournament name',t.name)}
+  <div class="two">${fld('start','Starts',t.start,'type="date"')}${fld('end','Ends',t.end,'type="date"')}</div>
+  <div class="field"><label for="f_conf">Status</label><select id="f_conf" data-f="confirmed"><option value="confirmed" ${t.confirmed!=='tentative'?'selected':''}>Confirmed</option><option value="tentative" ${t.confirmed==='tentative'?'selected':''}>Tentative</option></select></div>
+  <div class="two">${fld('city','City',t.city)}<div class="field"><label for="f_trip">Local or travel</label><select id="f_trip" data-f="trip"><option value="">Decide from hotels</option><option value="local" ${t.trip==='local'?'selected':''}>Local</option><option value="travel" ${t.trip==='travel'?'selected':''}>Travel</option></select></div></div>
+  ${fld('division','Division or bracket',t.division)}
+  ${fld('info','Game schedule link (Exposure Events, etc.)',t.info,'inputmode="url" autocapitalize="off"')}
+  ${fld('schedChecked','Schedule last checked (e.g. Fri 10/30, 9:00 PM)',t.schedChecked||'','')}
+  ${fld('site','Event site link',t.site,'inputmode="url" autocapitalize="off"')}
+
+  ${fld('groupme','GroupMe thread link',t.groupme,'inputmode="url" autocapitalize="off"')}
+  ${fld('played','Games played',t.played,'inputmode="numeric"')}
+  <div class="field"><label for="f_playlist">YouTube playlist links</label><textarea id="f_playlist" data-f="playlist" rows="2" autocapitalize="off" placeholder="One link per line. Optional label: Saturday | https://...">${esc(t.playlist||'')}</textarea></div>
+  ${fld('statsnerd','StatsNerd link (tournament or team page)',t.statsnerd,'inputmode="url" autocapitalize="off"')}
+  <div class="field"><label for="f_clips">Google Photos clip links (short highlight videos)</label><textarea id="f_clips" data-f="clips" rows="2" autocapitalize="off" placeholder="One link per line. Optional label: Saturday | https://...">${esc(t.clips||'')}</textarea></div>
+  <p class="help">Film goes up after the event. Tip: set the playlist to Unlisted on YouTube so only people with the link can watch.</p>
+  <div class="field"><label for="f_gh">Group hotel</label><select id="f_gh" data-f="groupHotel">${(()=>{const hasH=(t.hotels||[]).some(h=>h.name||h.url); const cur=t.groupHotel==='none'?'none':t.groupHotel==='tbd'?'tbd':(t.id&&!hasH)?'tbd':(t.id?'':'tbd'); return [['tbd','TBD (still looking into a group hotel)'],['','Available (group hotel is live, add it below)'],['none','No group hotel (each family can choose their own)']].map(([v,l])=>`<option value="${v}" ${cur===v?'selected':''}>${l}</option>`).join('');})()}</select></div>
+  ${grpBlock('hotels',t.hotels)}
+  ${roster().length?`<fieldset><legend>Travel plans (travel events only)</legend><p class="help">Copy each family’s times from GroupMe, e.g. “Fri 6:30pm”.</p>
+    ${roster().map(n=>{const x=(t.plans||{})[n]||{}; return `<div class="grp-row"><div class="t" style="font-weight:700;margin-bottom:6px">${esc(n)}</div>
+      <div class="two"><div class="field"><label>Arrives</label><input data-plan="${esc(n)}|arr" value="${esc(x.arr||'')}"></div><div class="field"><label>Departs</label><input data-plan="${esc(n)}|dep" value="${esc(x.dep||'')}"></div></div>
+      <div class="two"><div class="field"><label>How</label><select data-plan="${esc(n)}|how"><option value="">—</option><option value="fly" ${x.how==='fly'?'selected':''}>Flying</option><option value="drive" ${x.how==='drive'?'selected':''}>Driving</option></select></div><div class="field"><label>Note</label><input data-plan="${esc(n)}|note" value="${esc(x.note||'')}"></div></div></div>`;}).join('')}</fieldset>`:''}
+  ${grpBlock('venues',t.venues)}
+  ${grpBlock('games',t.games)}
+  ${fld('travelTab','Travel plans sheet tab name (travel events)',t.travelTab)}
+  <div class="field"><label for="f_tpl">Checklist template</label><select id="f_tpl" data-f="chkTpl">${[['auto','Automatic (based on location)'],['fly','Out-of-state travel: Book flight, Book hotel'],['drive','In-state travel: Book hotel'],['none','None']].map(([v,l])=>`<option value="${v}" ${(t.chkTpl||'auto')===v?'selected':''}>${l}</option>`).join('')}</select><p class="help">Automatic: out-of-state travel adds “Book flight” and “Book hotel,” in-state travel adds “Book hotel,” and local adds nothing. Template items appear once the tournament is confirmed.</p></div>
+  <div class="field"><label for="f_checklist">Event-specific checklist items</label><textarea id="f_checklist" data-f="checklist" rows="4" placeholder="One item per line. Start with “Optional:” for optional items.">${esc(t.checklist||'')}</textarea></div>
+  <div class="field"><label for="f_notes">Notes for parents</label><textarea id="f_notes" data-f="notes">${esc(t.notes||'')}</textarea></div>
+  <div class="bar"><button class="btn ghost" data-act="close">Cancel</button><button class="btn primary" data-act="save-t" data-id="${esc(t.id||'')}">Save and publish</button></div>`;
+}
+function settingsForm(){
+  const L=state.links;
+  return `<h2>Team and links</h2>
+  ${fld('tname','Team name',state.team.name)}
+  ${fld('tlabel','Label next to logo',state.team.label||'Jr EYBL 14U')}
+  ${fld('season','Season',state.team.season)}
+  ${fld('roster','Players (comma separated)',roster().join(', '))}
+  ${fld('travelSheet','Travel plans Google Sheet link',L.travelSheet,'inputmode="url" autocapitalize="off"')}
+  ${fld('leagueapps','LeagueApps link',L.leagueapps,'inputmode="url" autocapitalize="off"')}
+  ${fld('groupme','GroupMe group link',L.groupme,'inputmode="url" autocapitalize="off"')}
+  ${fld('whatsapp','WhatsApp group link',L.whatsapp,'inputmode="url" autocapitalize="off"')}
+  ${fld('youtube','YouTube channel or all-film link',L.youtube,'inputmode="url" autocapitalize="off"')}
+  <div class="field"><label for="f_photos">Google Photos albums with all clips (optional)</label><textarea id="f_photos" data-f="photos" rows="2" autocapitalize="off" placeholder="One link per line. Optional label: Saturday | https://...">${esc(L.photos||'')}</textarea></div>
+  <p class="help">Leave any link blank to hide it.</p>
+  <div class="bar"><button class="btn ghost" data-act="close">Cancel</button><button class="btn primary" data-act="save-s">Save and publish</button></div>`;
+}
+function openSheet(html){closeSheet(); sheet=document.createElement('div'); sheet.className='sheet'; sheet.innerHTML=`<div class="panel" role="dialog" aria-modal="true">${html}</div>`; document.body.appendChild(sheet); document.body.style.overflow='hidden'; const f=sheet.querySelector('input'); if(f) f.focus();}
+function closeSheet(){if(sheet){sheet.remove();sheet=null;document.body.style.overflow='';}}
+function readPlans(){const o={}; if(!sheet) return o; sheet.querySelectorAll('[data-plan]').forEach(el=>{const [n,k]=el.dataset.plan.split('|'); const v=el.value.trim(); if(v){(o[n]=o[n]||{})[k]=v;}}); return o;}
+function readForm(){const o={}; sheet.querySelectorAll('[data-f]').forEach(el=>o[el.dataset.f]=el.value.trim());
+  Object.keys(GROUPS).forEach(g=>{const fs=sheet.querySelector(`[data-grp="${g}"]`); if(!fs) return; o[g]=[...fs.querySelectorAll(`[data-row="${g}"]`)].map(r=>{const v={}; r.querySelectorAll('[data-k]').forEach(el=>v[el.dataset.k]=el.value.trim()); return v;}).filter(v=>Object.values(v).some(Boolean));});
+  return o;}
+
+/* ---------- Saving (publishes a new version of this page) ---------- */
+function buildDoc(s){
+  const css=document.getElementById('css').textContent;
+  const app=document.getElementById('app').textContent;
+  const json=JSON.stringify(s).replace(/</g,'\\u003c');
+  return '<!doctype html>\n<html lang="en">\n<head>\n'+HEAD('Team Hub | '+(s.team&&s.team.name?s.team.name:'Team'))+'\n<style id="css">'+css+'</style>\n</head>\n<body>\n<div id="root"></div>\n<script type="application/json" id="data">'+json+'<\/script>\n<script id="app">'+app+'<\/script>\n</body>\n</html>\n';
+}
+async function persist(next){
+  if(!artifactNs){toast('Saving works when the hub is opened in Claude.');return false;}
+  toast('Publishing…',6000);
+  next.updatedAt=new Date().toISOString();
+  try{ await artifactNs.publish(buildDoc(next)); state=next; return true; }
+  catch(err){const c=err&&err.code;
+    if(c==='not_writer'||c==='not_granted'||c==='consent_required'||c==='capability_disabled'||c==='capability_removed'||c==='not_declared'){readOnly=true;canEdit=false;closeSheet();render();toast('You don’t have edit access. Ask the hub owner to add you as an editor.',4000);}
+    else if(c==='conflict'){toast('Someone else just updated the hub. Reloading.');}
+    else if(c==='rate_limited'){toast('Saving too often. Wait a moment and try again.');}
+    else if(c==='too_large'){toast('The hub is too large to save.');}
+    else {toast('Couldn’t publish. Try again.');}
+    return false;}
+}
+
+/* ---------- Copy for GroupMe ---------- */
+function summary(t){const lines=[t.name, fmtRange(t.start,t.end)+(t.city?', '+t.city:'')];
+  ((noGH(t)||ghTBD(t))?[]:(t.hotels||[])).forEach(h=>{lines.push('','Hotel: '+(h.name||'')); if(h.address) lines.push(h.address); if(h.code) lines.push('Block/code: '+h.code); if(h.rate) lines.push('Rate: '+h.rate); if(h.deadline) lines.push('Book by: '+h.deadline); if(safeUrl(h.url)&&!pend(t)) lines.push('Book: '+safeUrl(h.url));});
+  (t.venues||[]).forEach(v=>{lines.push('','Gym'+(v.day?' ('+v.day+')':'')+': '+(v.name||'')); if(v.address) lines.push(v.address);});
+  lines.splice(1,0,'Status: '+(conf(t)==='tentative'?'Tentative':'Confirmed'));
+  if(safeUrl(t.info)) lines.push('','Game schedule: '+safeUrl(t.info));
+  if(safeUrl(t.site)) lines.push('','Event site: '+safeUrl(t.site));
+  linksOf(t.playlist).forEach(x=>lines.push('','Game film (YouTube)'+(x.label?' – '+x.label:'')+': '+x.url));
+  linksOf(t.clips).forEach(x=>lines.push('','Short clips (Google Photos)'+(x.label?' – '+x.label:'')+': '+x.url));
+  if(safeUrl(t.statsnerd)) lines.push('','Game film (StatsNerd): '+safeUrl(t.statsnerd));
+  lines.push('','Game times and RSVPs are in LeagueApps.');
+  if(location.href.startsWith('http')) {}
+  return lines.join('\n');}
+async function copyText(txt){
+  try{ await navigator.clipboard.writeText(txt); toast('Copied. Paste it into the GroupMe thread.'); return; }catch(e){}
+  openSheet(`<h2>Copy these details</h2><p class="help">Select all and copy, then paste into GroupMe.</p><div class="field"><textarea id="cp" style="min-height:260px">${esc(txt)}</textarea></div><div class="bar"><button class="btn primary" data-act="close">Done</button></div>`);
+  const ta=document.getElementById('cp'); ta.focus(); ta.select();
+}
+
+/* ---------- Router + events ---------- */
+function render(){
+  const m=location.hash.match(/^#t\/(.+)$/);
+  if(!m){ homeTab = location.hash==='#past' ? 'past' : 'upcoming'; if(homeTab==='upcoming') upView = (location.hash==='#list'||location.hash==='#upcoming') ? 'list' : 'calendar'; }
+  const t=m&&state.tournaments.find(x=>x.id===decodeURIComponent(m[1]));
+  const dock='';
+  if(!t) lastHome=location.hash||'#home';
+  root.innerHTML=t?`<main class="wrap${dock?' has-dock':''}">${detailView(t)}</main>${dock}`:`<main class="wrap has-nav">${homeView()}</main>${navBar(curView())}`;
+  document.title=(t?t.name+' | ':'')+'Team Hub';
+}
+window.addEventListener('hashchange',()=>{render();window.scrollTo(0,0);});
+
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('[data-act]'); if(!b) return;
+  const act=b.dataset.act, id=b.dataset.id;
+  if(act==='home'){location.hash=lastHome;return;}
+  if(act==='calEarly'){calEarly=!calEarly; render(); return;}
+  if(act==='a2hs'){try{localStorage.setItem('hub-a2hs','1');}catch(e){} b.closest('.a2hs').remove(); return;}
+  if(act==='filter'){tripFilter=b.dataset.k;render();return;}
+  if(act==='bulk'){const ta=sheet.querySelector('#bulk'); const rows=sheet.querySelector('[data-grp="games"] .rows'); let n=0;
+    ta.value.split(/\n+/).forEach(line=>{const m=line.match(/https?:\/\/\S+|(?:www\.)?youtu(?:be\.com|\.be)\/\S+/i); if(!m) return;
+      const label=line.replace(m[0],'').replace(/^[\s\-–:|,]+|[\s\-–:|,]+$/g,'').replace(/^vs\.?\s+/i,'');
+      rows.insertAdjacentHTML('beforeend',grpRow('games',{url:m[0],opponent:label})); n++;});
+    ta.value=''; toast(n?('Added '+n+' game'+(n>1?'s':'')+'. Fill in results if you like.'):'No links found. Paste one YouTube link per line.'); return;}
+  if(act==='organizer'){canEdit=true;render();toast('Editing on. Saves only go through for admins with edit access.',3500);return;}
+  if(act==='new'){openSheet(tournamentForm());return;}
+  if(act==='settings'){openSheet(settingsForm());return;}
+  if(act==='edit'){openSheet(tournamentForm(state.tournaments.find(x=>x.id===id)));return;}
+  if(act==='close'){closeSheet();return;}
+  if(act==='addrow'){const fs=b.closest('fieldset'); fs.querySelector('.rows').insertAdjacentHTML('beforeend',grpRow(b.dataset.g)); const rows=fs.querySelectorAll('.grp-row'); const inp=rows[rows.length-1].querySelector('input'); if(inp) inp.focus(); return;}
+  if(act==='rmrow'){b.closest('.grp-row').remove();return;}
+  if(act==='copy'){const t=state.tournaments.find(x=>x.id===id); if(t) copyText(summary(t)); return;}
+  if(act==='del'){const t=state.tournaments.find(x=>x.id===id); if(!t) return;
+    openSheet(`<h2>Delete this tournament?</h2><p class="help" style="font-size:17px">“${esc(t.name||'This tournament')}” (${esc(fmtRange(t.start,t.end))}) will be removed from the hub for everyone. This can’t be undone.</p><div class="bar"><button class="btn ghost" data-act="close">Cancel</button><button class="btn danger" data-act="del-yes" data-id="${esc(id)}">Delete</button></div>`); return;}
+  if(act==='del-yes'){const next=JSON.parse(JSON.stringify(state)); next.tournaments=next.tournaments.filter(x=>x.id!==id);
+    if(await persist(next)){closeSheet(); location.hash=lastHome&&!lastHome.startsWith('#t/')?lastHome:'#home'; render(); toast('Deleted.');} return;}
+  if(act==='save-t'){const f=readForm(); if(!f.name){toast('Add a tournament name first.');return;}
+    if(f.start&&f.end&&f.end<f.start){toast('End date is before the start date.');return;}
+    const next=JSON.parse(JSON.stringify(state)); const tid=id||uid();
+    const rec={id:tid,name:f.name,start:f.start,end:f.end||f.start,city:f.city,trip:f.trip,confirmed:f.confirmed,division:f.division,info:f.info,schedChecked:f.schedChecked||'',site:f.site,plans:readPlans(),groupme:f.groupme,groupHotel:f.groupHotel,clips:f.clips,playlist:f.playlist,statsnerd:f.statsnerd,played:f.played,hotels:f.hotels,venues:f.venues,games:f.games,travelTab:f.travelTab,checklist:f.checklist,chkTpl:f.chkTpl,notes:f.notes};
+    const i=next.tournaments.findIndex(x=>x.id===tid); if(i>=0) next.tournaments[i]=rec; else next.tournaments.push(rec);
+    try{sessionStorage.setItem('hub-open',tid);}catch(err){}
+    if(await persist(next)){closeSheet();location.hash='#t/'+tid;render();toast('Published.');}
+    return;}
+  if(act==='save-s'){const f=readForm(); const next=JSON.parse(JSON.stringify(state));
+    next.team={name:f.tname||'Our Team',label:f.tlabel,season:f.season}; next.roster=(f.roster||'').split(',').map(x=>x.trim()).filter(Boolean); next.links={leagueapps:f.leagueapps,groupme:f.groupme,whatsapp:f.whatsapp,youtube:f.youtube,photos:f.photos,travelSheet:f.travelSheet,travelSynced:state.links.travelSynced||''};
+    if(await persist(next)){closeSheet();render();toast('Published.');}
+    return;}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet) closeSheet();});
+document.addEventListener('change',e=>{const c=e.target.closest('[data-chk]'); if(!c) return; try{localStorage.setItem(c.dataset.chk,c.checked?'1':'0');}catch(err){} const box=c.closest('.chk'); c.closest('.chki').classList.toggle('done',c.checked); if(box){const all=box.querySelectorAll('[data-chk]'); const n=[...all].filter(x=>x.checked).length; box.querySelector('.chkh small').textContent=n+' of '+all.length+' done';}});
+
+try{const o=sessionStorage.getItem('hub-open'); if(o){sessionStorage.removeItem('hub-open'); if(!location.hash) location.hash='#t/'+o;}}catch(e){}
+render();
+
+(async()=>{
+  if(!window.claude||typeof window.claude.use!=='function') return;
+  try{ artifactNs=await window.claude.use('artifact'); }catch(e){ artifactNs=null; }
+  if(!artifactNs){render();return;}
+  let u=null; try{ u=await window.claude.use('user'); }catch(e){}
+  if(u){ try{ const [ce,own]=await Promise.all([u.canEdit?u.canEdit():false,u.isOwner?u.isOwner():false]); canEdit=!!(ce||own); }catch(e){} }
+  render();
+})();
+/* Parent site: read-only. Travel times load live from the team Google Sheet. */
+function a2hs(){
+  let hide=false; try{hide=localStorage.getItem('hub-a2hs')==='1';}catch(e){}
+  const standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
+  if(hide||standalone||window.innerWidth>760) return '';
+  return `<div class="a2hs a2hs-card"><div class="a2top"><img class="a2icon" src="apple-touch-icon.png" alt="" width="64" height="64"><div class="a2txt"><b>Put the Team Hub on your Home Screen</b><span>It opens like an app, with the Swish icon.</span></div></div>
+  <details class="a2how"><summary>Show me how</summary>
+    <p class="a2h">iPhone (Safari)</p><ol><li>Tap the Share button.</li><li>Tap <b>Add to Home Screen</b>, then <b>Add</b>.</li></ol>
+    <p class="a2h">Android (Chrome)</p><ol><li>Tap the menu (⋮).</li><li>Tap <b>Add to Home screen</b> or <b>Install app</b>.</li></ol>
+  </details><button data-act="a2hs">Got it</button></div>`;
+}
+(function(){
+  const sh=(state.links&&state.links.travelSheet)||''; const m=sh.match(/\/d\/([A-Za-z0-9_-]+)/); if(!m) return;
+  const id=m[1];
+  function parseCSV(txt){const rows=[];let row=[],f='',q=false;for(let i=0;i<txt.length;i++){const c=txt[i];
+    if(q){if(c==='"'){if(txt[i+1]==='"'){f+='"';i++;}else q=false;}else f+=c;}
+    else if(c==='"')q=true; else if(c===','){row.push(f);f='';} else if(c==='\n'){row.push(f);rows.push(row);row=[];f='';} else if(c!=='\r') f+=c;}
+    if(f||row.length){row.push(f);rows.push(row);} return rows;}
+  const how=x=>/fly|flight|plane/i.test(x)?'fly':/driv|car/i.test(x)?'drive':'';
+  const tgt=(state.tournaments||[]).filter(t=>t.trip==='travel'&&t.travelGid&&(function(){try{return status(t).k!=='past';}catch(e){return true;}})());
+  if(!tgt.length) return;
+  let ok=0;
+  Promise.all(tgt.map(t=>fetch(`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&headers=0&gid=${t.travelGid}&range=A5:E60`,{cache:'no-store'})
+    .then(r=>{if(!r.ok) throw 0; return r.text();})
+    .then(txt=>{const plans={}; parseCSV(txt).forEach(r=>{const n=(r[0]||'').trim(); if(!n||/^player$/i.test(n)) return;
+        const x={arr:(r[1]||'').trim(),dep:(r[2]||'').trim(),how:how(r[3]||''),note:(r[4]||'').trim()};
+        Object.keys(x).forEach(k=>{if(!x[k]) delete x[k];}); if(Object.keys(x).length) plans[n]=x;});
+      t.plans=plans; ok++;})
+    .catch(()=>{}))).then(()=>{ if(!ok) return;
+      const d=new Date(); state.links.travelLive=d.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+      try{render();}catch(e){} });
+})();
+})();
+</script>
+</body>
+</html>
