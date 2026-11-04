@@ -1,7 +1,5 @@
 # Swish Team Hub (parent site)
 
-Read-only, parent-facing version of the Swish Team Hub.
-Travel times load live from the team Google Sheet on every visit.
-Everything else (tournaments, gyms, hotels, schedules, checklists, film) comes from index.html.
-
-To update: replace index.html with the newest version and commit.
+This page loads the latest Team Hub automatically from the team Google Sheet
+(the "_hub_site" tab), which the Claude hub updates every time it is saved.
+Travel times load live from the sheet too. You never need to edit these files.
